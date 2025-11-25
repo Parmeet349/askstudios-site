@@ -21,7 +21,8 @@ export default function HeroSection() {
   return (
     <section className="mt-10 grid gap-12 md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] md:items-center">
       {/* Left text */}
-      <motion.div variants={container} initial="hidden" animate="show">
+      {/* <motion.div variants={container} initial="hidden" animate="show"> */}
+      <motion.div variants={item} initial="hidden" animate="show">
         <motion.div
           variants={item}
           className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/5 px-3 py-1 text-xs text-emerald-200"
