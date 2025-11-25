@@ -19,8 +19,11 @@ export default function Navbar() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="h-8 w-8 rounded-xl bg-gradient-to-br from-indigo-400 to-emerald-400 shadow-lg shadow-emerald-500/20" />
+        {/* <div className="h-8 w-8 rounded-xl bg-gradient-to-br from-indigo-400 to-emerald-400 shadow-lg shadow-emerald-500/20" /> */}
+            {/* Add Logo */}
+            <img src="/logo.png" alt="ASK Studios Logo" className="h-8 w-8 rounded-xl shadow-lg shadow-emerald-500/20" />
         <span className="text-sm font-semibold tracking-[0.25em] text-slate-200">
+
           ASK STUDIOS
         </span>
       </motion.div>
