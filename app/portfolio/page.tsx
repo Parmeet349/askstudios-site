@@ -4,6 +4,19 @@ import GlassCard from "@/components/ui/GlassCard";
 
 const portfolioItems = [
   {
+    title: "ASK Studios AI Assistant (This Website)",
+    role: "AI assistant · Backend · UX",
+    timeframe: "2025",
+    summary:
+      "A site-wide AI assistant embedded into the ASK Studios website, built with a custom API route and LLM integration. It answers product and services questions and helps visitors explore what we can build for them.",
+    impactPoints: [
+      "Designed a floating chat UI that matches the site's brand with smooth animations and responsive behavior.",
+      "Implemented a custom API backend that integrates with LLM-compatible models.",
+      "Showcases to clients how we can build similar assistants for their products, support, or internal tools.",
+    ],
+    techStack: ["Next.js", "React", "Framer Motion", "LLM API", "TypeScript"],
+  },
+  {
     title: "AutoLog – Smart Vehicle Logbook",
     role: "Product design · Mobile development · Backend",
     timeframe: "2024 – ongoing",
@@ -56,6 +69,7 @@ const portfolioItems = [
     techStack: ["React Native"],
   },
 ];
+
 
 export default function PortfolioPage() {
   return (
