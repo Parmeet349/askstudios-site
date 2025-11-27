@@ -21,14 +21,16 @@ export default function HeroSection() {
   return (
     <section className="mt-10 grid gap-12 md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] md:items-center">
       {/* Left text */}
-      {/* <motion.div variants={container} initial="hidden" animate="show"> */}
       <motion.div variants={item} initial="hidden" animate="show">
         <motion.div
           variants={item}
           className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/5 px-3 py-1 text-xs text-emerald-200"
         >
           <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-          Building next-gen apps & AI solutions
+          Building next-gen apps ·{" "}
+          <span className="font-semibold text-emerald-100">
+            New: Live AI chat demo
+          </span>
         </motion.div>
 
         <motion.h1
@@ -51,21 +53,33 @@ export default function HeroSection() {
 
         <motion.div variants={item} className="mt-6 flex flex-wrap gap-3">
           <a
-            href="#products"
+            href="/products"
             className="rounded-full bg-slate-50 px-5 py-2 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-500/20 hover:bg-emerald-200"
           >
             Explore products
           </a>
           <a
-            href="#services"
+            href="/services"
             className="rounded-full border border-slate-500/50 bg-white/5 px-5 py-2 text-sm font-medium text-slate-100 hover:border-emerald-400 hover:bg-emerald-400/10"
           >
             View services
           </a>
         </motion.div>
+
+        <motion.p
+          variants={item}
+          className="mt-3 text-xs text-slate-400"
+        >
+          💬 Try the{" "}
+          <span className="font-medium text-emerald-300">
+            ASK Studios AI assistant
+          </span>{" "}
+          in the bottom-right corner. It’s a live chatbot built with our own Next.js backend and
+          LLM integration.
+        </motion.p>
       </motion.div>
 
-      {/* Right visual */}
+      {/* Right visual panel */}
       <motion.div
         className="relative"
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -77,7 +91,7 @@ export default function HeroSection() {
           <div className="mb-3 flex items-center justify-between text-xs text-slate-400">
             <span>ASK Studios · Product stack</span>
             <span className="rounded-full bg-slate-800/80 px-3 py-1 text-[10px] uppercase tracking-[0.16em] text-slate-300">
-              Live · Beta · Upcoming
+              Live · AI-powered
             </span>
           </div>
           <div className="grid gap-3 text-xs">
@@ -117,6 +131,24 @@ export default function HeroSection() {
                 </span>
               </motion.div>
             ))}
+
+            {/* Extra row showing chat demo */}
+            <motion.div
+              className="flex items-center justify-between rounded-2xl bg-slate-800/60 px-4 py-3"
+              initial={{ opacity: 0, x: 12 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.5 }}
+            >
+              <div>
+                <div className="font-medium text-slate-50">ASK Studios AI Assistant</div>
+                <div className="text-slate-400">
+                  Site-wide chatbot built with our own api + LLM integration.
+                </div>
+              </div>
+              <span className="rounded-full bg-emerald-500/10 px-3 py-1 text-emerald-300 text-[11px]">
+                Try bottom-right
+              </span>
+            </motion.div>
           </div>
         </div>
       </motion.div>

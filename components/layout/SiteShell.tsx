@@ -4,6 +4,7 @@
 import { motion } from "framer-motion";
 import Navbar from "../ui/Navbar";
 import Footer from "../ui/Footer";
+import ChatWidget from "../chat/ChatWidget";
 
 type Props = {
   children: React.ReactNode;
@@ -31,6 +32,8 @@ export default function SiteShell({ children }: Props) {
 
         <Footer />
       </div>
+      {/* Global chat widget */}
+      <ChatWidget />
     </div>
   );
 }
