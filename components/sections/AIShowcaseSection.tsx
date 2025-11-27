@@ -55,7 +55,7 @@ export default function AIShowcaseSection() {
       >
         💬 <span className="font-semibold">Live example:</span> The{" "}
         <span className="text-emerald-300">ASK Studios AI assistant</span> in the bottom-right
-        corner, a custom <code>/api/chat</code> route, and
+        corner, a custom <code>API</code> route, and
         an LLM. We can adapt the same pattern for your product or team.
       </motion.div>
     </section>
