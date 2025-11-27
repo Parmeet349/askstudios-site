@@ -28,7 +28,7 @@ export default function ProductsSection() {
                 </h3>
               </div>
             </div>
-            <p className="mt-3 text-sm text-slate-300/80">{product.description}</p>
+            <p className="mt-3 text-sm text-slate-300/80">{product.shortDescription}</p>
             <div className="mt-4">
               <Link
                 href={product.href}

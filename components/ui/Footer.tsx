@@ -1,19 +1,26 @@
-// src/components/ui/Footer.tsx
-"use client";
+import Link from "next/link";
 
 export default function Footer() {
-  const year = new Date().getFullYear();
   return (
-    <footer className="mt-16 border-t border-slate-800 pt-6 text-xs text-slate-500">
-      <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
-        <span>© {year} ASK Studios. All rights reserved.</span>
-        <div className="flex gap-4">
-          <a href="#" className="hover:text-slate-300">
-            Privacy
-          </a>
-          <a href="#" className="hover:text-slate-300">
-            Terms
-          </a>
+    <footer className="mt-20 border-t border-slate-800/60 py-8 text-center text-xs text-slate-500">
+      <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
+        <p className="text-slate-400/70">
+          © {new Date().getFullYear()} ASK Studios. All rights reserved.
+        </p>
+
+        <div className="flex gap-6">
+          <Link
+            href="/privacy"
+            className="hover:text-slate-200 transition-colors"
+          >
+            Privacy Policy
+          </Link>
+          <Link
+            href="/terms"
+            className="hover:text-slate-200 transition-colors"
+          >
+            Terms of Service
+          </Link>
         </div>
       </div>
     </footer>

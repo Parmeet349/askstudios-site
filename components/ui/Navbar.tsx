@@ -1,13 +1,15 @@
-// src/components/ui/Navbar.tsx
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const navLinks = [
-  { label: "Products", href: "#products" },
-  { label: "Services", href: "#services" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "Products", href: "/products" },
+  { label: "Services", href: "/services" },
+  { label: "About", href: "/about" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -19,11 +21,8 @@ export default function Navbar() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5 }}
       >
-        {/* <div className="h-8 w-8 rounded-xl bg-gradient-to-br from-indigo-400 to-emerald-400 shadow-lg shadow-emerald-500/20" /> */}
-            {/* Add Logo */}
-            <img src="/logo.png" alt="ASK Studios Logo" className="h-8 w-8 rounded-xl shadow-lg shadow-emerald-500/20" />
+        <div className="h-8 w-8 rounded-xl bg-gradient-to-br from-indigo-400 to-emerald-400 shadow-lg shadow-emerald-500/20" />
         <span className="text-sm font-semibold tracking-[0.25em] text-slate-200">
-
           ASK STUDIOS
         </span>
       </motion.div>
@@ -35,16 +34,16 @@ export default function Navbar() {
         transition={{ delay: 0.1, duration: 0.5 }}
       >
         {navLinks.map((link) => (
-          <a key={link.href} href={link.href} className="hover:text-white">
+          <Link key={link.href} href={link.href} className="hover:text-white">
             {link.label}
-          </a>
+          </Link>
         ))}
-        <a
-          href="#contact"
+        <Link
+          href="/contact"
           className="rounded-full border border-slate-500/50 bg-white/5 px-4 py-1.5 text-sm font-medium hover:border-emerald-400 hover:bg-emerald-400/10"
         >
           Work with us
-        </a>
+        </Link>
       </motion.nav>
     </header>
   );
