@@ -1,7 +1,7 @@
 ---
 title: "BrieflyCA: The Best App for Fast, Unbiased Canadian News Summaries"
 description: "Looking for an unbiased Canadian news aggregator? BrieflyCA uses AI to deliver clear, under-60-second summaries of the stories that matter most."
-date: "2025-11-27"
+date: "2025-12-19"
 tags: ["canadian-news", "ai-news-app", "productivity", "tech", "journalism"]
 author:
   name: "Parmeet Singh Banga"
