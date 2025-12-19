@@ -5,13 +5,13 @@ date: "2025-11-27"
 tags: ["news","canada","ai","mobile-app"]
 author:
   name: "Parmeet Singh Banga"
-  email: "parmeet@example.com"
+  email: "bangaparmeet.ca@gmail.com"
   twitter: "parmeet_banga"
   avatar: "/images/author/parmeet_logo.png"
-image: "/images/blog/brieflyca-hero.jpg"
+image: "/images/blog/The smarter way to track.png"
 ---
 
-![BrieflyCA hero banner](/images/blog/brieflyca-hero.jpg)
+![BrieflyCA hero banner](/images/blog/The smarter way to track.png)
 
 BrieflyCA is a Canada-first digital news platform built for people who want to stay informed — without information overload. It delivers concise, easy-to-read news summaries that respect your time while keeping you connected to what’s happening across the country.
 
