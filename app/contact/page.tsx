@@ -117,6 +117,9 @@ export default function ContactPage() {
                 <option>Web app / dashboard</option>
                 <option>AI / automation</option>
                 <option>SaaS product</option>
+                <option>AutoLog App</option>
+                <option>BrieflyCA App</option>
+                <option>Tambola Number App</option>
                 <option>Something else</option>
               </select>
             </div>
