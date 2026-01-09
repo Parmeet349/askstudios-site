@@ -6,16 +6,21 @@ tags: ["vehicles","productivity","expenses","analytics","mobile-app"]
 author:
   name: "Parmeet Singh Banga"
   email: "bangaparmeet.ca@gmail.com"
-  twitter: "parmeet_banga"
+  twitter: "banga.parmeet"
   avatar: "/images/author/parmeet_logo.png"
-image: "/images/blog/autolog-vehicle-manager-hero.jpg"
+image: "/images/blog/autolog-vehicle-manager-hero.png"
 ---
 
-![AutoLog Vehicle Manager hero](/images/blog/autolog-vehicle-manager-hero.jpg)
+![AutoLog Vehicle Manager hero](/images/blog/autolog-vehicle-manager-hero.png)
 
 Managing a vehicle goes far beyond filling fuel and booking the occasional service. From tracking expenses and monitoring efficiency to maintaining a complete service history, modern vehicle ownership demands organization and accuracy.
 
 **AutoLog Vehicle Manager is built to solve exactly that.**
+
+
+🌐 **Website:** [https://autolog.ca](https://autolog.ca)  
+🤖 **Android App:** [https://play.google.com/store/apps/details?id=com.parmeet.AutoLog](https://play.google.com/store/apps/details?id=com.parmeet.AutoLog)  
+🍎 **iOS App:** [https://apps.apple.com/ca/app/autolog-vehicle-manager/id6757113052](https://apps.apple.com/ca/app/autolog-vehicle-manager/id6757113052) 
 
 It is a comprehensive, intelligent vehicle management platform designed to help individuals, families, and small businesses take full control of their vehicles — effortlessly.
 
@@ -205,5 +210,16 @@ It transforms vehicle ownership from reactive to informed.
 AutoLog Vehicle Manager sets a new standard for vehicle management apps. By combining structured logging, intelligent analytics, and long-term data preservation, it empowers users to make smarter decisions about their vehicles.
 
 Whether you own one car or manage multiple vehicles, AutoLog gives you clarity, control, and confidence.
+
+---
+
+## Get started with AutoLog today
+
+Take control of your vehicle history, expenses, and performance — all in one place.
+
+🌐 **Visit the AutoLog Website:** [https://autolog.ca](https://autolog.ca)  
+🤖 **Download on Google Play:** [https://play.google.com/store/apps/details?id=com.parmeet.AutoLog](https://play.google.com/store/apps/details?id=com.parmeet.AutoLog)  
+🍎 **Download on the App Store:** [https://apps.apple.com/ca/app/autolog-vehicle-manager/id6757113052](https://apps.apple.com/ca/app/autolog-vehicle-manager/id6757113052)
+
 
 **AutoLog isn’t just tracking vehicles — it’s redefining how vehicles are managed.**
