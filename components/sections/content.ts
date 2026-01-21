@@ -7,9 +7,15 @@ export type Product = {
   shortDescription: string;
   status: "live" | "beta" | "coming-soon";
   platforms: string[];
-  href: string; // internal link to product page
+  href: string;
   cta: string;
-  badge?: string; // optional highlight badge (e.g. Flagship product)
+  badge?: string;
+  links?: {
+    website?: string;
+    playStore?: string;
+    appStore?: string;
+    sourceCode?: string;
+  };
 };
 
 export const products: Product[] = [
@@ -24,52 +30,59 @@ export const products: Product[] = [
     href: "/products/brieflyca",
     cta: "View details",
     badge: "Flagship product",
+    links: {
+      website: "https://brieflyca.com",
+      playStore:
+        "https://play.google.com/store/apps/details?id=com.askstudios.brieflyca",
+      sourceCode: "https://github.com/Parmeet349/BrieflyCA",
+      appStore: "https://apps.apple.com/us/app/brieflyca/id6757092055",
+    },
   },
   {
     slug: "autolog",
     name: "AutoLog",
     tag: "Mobile · Productivity",
     shortDescription:
-      "Smart vehicle logbook with fuel tracking, insights, and automation-ready data.",
+      "Smart vehicle logbook for tracking fuel, maintenance, and ownership costs.",
     status: "live",
     platforms: ["Mobile", "Backend API"],
     href: "/products/autolog",
     cta: "View details",
-  },
-  {
-    slug: "intervue-ai",
-    name: "Intervue.AI",
-    tag: "Web · AI",
-    shortDescription:
-      "AI-powered mock interviews with real-time feedback, analytics, and progress tracking.",
-    status: "beta",
-    platforms: ["Web", "AI"],
-    href: "/products/intervue-ai",
-    cta: "View details",
-  },
-  {
-    slug: "dripreel",
-    name: "DripReel",
-    tag: "SaaS · Automation",
-    shortDescription:
-      "From text to viral-ready short-form videos for YouTube Shorts, TikTok, and Reels.",
-    status: "coming-soon",
-    platforms: ["Web", "SaaS"],
-    href: "/products/dripreel",
-    cta: "View details",
+    links: {
+      website: "https://autolog.ca",
+      playStore: "https://play.google.com/store/apps/details?id=com.parmeet.AutoLog",
+      appStore: "https://apps.apple.com/us/app/autolog-vehicle-manager/id6757113052",
+    },
   },
   {
     slug: "tambola-caller",
     name: "Tambola Caller",
     tag: "Mobile · Entertainment",
     shortDescription:
-      "Modern Tambola / Housie number caller with smooth UX and creator-friendly controls.",
+      "Modern Tambola / Housie number caller designed for events and live games.",
     status: "live",
     platforms: ["Mobile"],
     href: "/products/tambola-caller",
     cta: "View details",
+    links: {
+      playStore:
+        "https://play.google.com/store/apps/details?id=com.geekypajis.tambolanumbers",
+      appStore: "https://apps.apple.com/us/app/tambola-number-caller-housie/id6757088103",
+    },
+  },
+  {
+    slug: "managerly",
+    name: "Managerly",
+    tag: "Mobile · Security",
+    shortDescription:
+      "Privacy-focused password manager built with an encryption-first approach.",
+    status: "beta",
+    platforms: ["Mobile"],
+    href: "/products/managerly",
+    cta: "View details",
   },
 ];
+
 
 export const productDetails: Record<
   string,
@@ -84,20 +97,20 @@ export const productDetails: Record<
   brieflyca: {
     heroTagline: "Canadian news, simplified into 60-second reads.",
     overview:
-      "BrieflyCA is a Canada-only, mobile-first news app built to reduce information overload. Every 6 hours, it automatically fetches the latest Canadian headlines and rewrites them using AI into short, easy-to-read summaries—so users stay informed without endless scrolling.",
+      "BrieflyCA is a Canada-only, mobile-first news application designed to reduce information overload. It automatically fetches Canadian headlines at regular intervals and rewrites them using AI into short, easy-to-read summaries, allowing users to stay informed without endless scrolling.",
     features: [
-      "Swipe-based, dark-themed UI optimized for fast consumption.",
-      "AI-generated news summaries under 60 seconds.",
+      "AI-generated news summaries readable in under 60 seconds.",
+      "Swipe-based, dark-themed interface optimized for speed.",
       "Automated news fetching every 6 hours.",
       "Category-based prioritization of important stories.",
       "Smart push notifications using Firebase schedulers.",
-      "Freemium model with ads and premium ad-free experience.",
+      "Freemium model with ads and optional premium experience.",
       "Bookmark support for saving important stories.",
     ],
     idealFor: [
       "Busy professionals who want quick news updates.",
       "Students and commuters with limited reading time.",
-      "Canadians looking for clean, clutter-free news.",
+      "Canadians looking for a clean, clutter-free news experience.",
     ],
     techStack: [
       "React Native",
@@ -110,97 +123,77 @@ export const productDetails: Record<
 
   autolog: {
     heroTagline:
-      "Smart vehicle logbook and fuel tracking for everyday drivers and fleets.",
+      "Smart vehicle logbook and fuel tracking for everyday drivers and small fleets.",
     overview:
-      "AutoLog keeps every trip, fill-up, and expense organized. It turns your fuel receipts and odometer readings into clean, searchable data you can actually use—whether it's for tax, fleet management, or just understanding your car better.",
+      "AutoLog is a mobile-first vehicle management application that helps users track fuel usage, maintenance history, and expenses in one place. It transforms scattered receipts and notes into structured, searchable data that provides real insights into vehicle ownership costs.",
     features: [
-      "Log fuel entries in seconds with structured fields.",
-      "Track fuel economy and spending over time.",
-      "Support for multiple vehicles and profiles.",
-      "API-ready backend for future dashboard and reporting.",
-      "Secure storage with room to extend into cloud sync.",
+      "Quick fuel, service, and expense logging.",
+      "Vehicle-wise dashboards and cost trends.",
+      "OCR-based receipt scanning to reduce manual entry.",
+      "Support for multiple vehicles and user profiles.",
+      "Backend APIs ready for reporting and analytics.",
     ],
     idealFor: [
-      "Everyday drivers who want visibility on fuel spend.",
-      "Small businesses with a few vehicles.",
+      "Everyday drivers who want visibility into fuel spending.",
+      "Small businesses managing a few vehicles.",
       "Freelancers tracking vehicle expenses for tax purposes.",
     ],
-    techStack: ["React Native", "Node.js", "REST APIs", "PostgreSQL / SQL"],
-  },
-
-  "intervue-ai": {
-    heroTagline:
-      "Practice job interviews with an AI that talks, listens, and gives feedback.",
-    overview:
-      "Intervue.AI simulates real interview scenarios with an AI avatar and structured questions. It analyzes your responses over time, helping you improve clarity, confidence, and domain knowledge for your next big opportunity.",
-    features: [
-      "AI avatar that conducts mock interviews in real-time.",
-      "Dynamic question generation by role, level, and tech stack.",
-      "Session recording with optional video analysis.",
-      "Performance analytics and improvement tracking.",
-      "Future roadmap for B2B hiring and training teams.",
-    ],
-    idealFor: [
-      "Job seekers preparing for tech or product roles.",
-      "Students practicing behavioral and technical interviews.",
-      "Bootcamps and training programs.",
-    ],
     techStack: [
-      "Next.js",
-      "React",
-      "AI APIs",
-      "PostgreSQL",
-      "Cloud storage",
-    ],
-  },
-
-  dripreel: {
-    heroTagline:
-      "Short-form videos on autopilot: from script to export-ready clips.",
-    overview:
-      "DripReel turns written scripts or ideas into vertical videos ready for YouTube Shorts, TikTok, and Instagram Reels. It handles visuals, voice-over, pacing, and rendering so creators can focus on ideas instead of timelines.",
-    features: [
-      "Input text and generate a 9:16 short-form video.",
-      "Template-based visual styles for different niches.",
-      "Voice-over via AI text-to-speech.",
-      "Automated rendering pipeline with MP4 exports.",
-      "Future integrations for direct social publishing.",
-    ],
-    idealFor: [
-      "Creators scaling short-form content.",
-      "Businesses repurposing blogs into video.",
-      "Agencies managing multiple social accounts.",
-    ],
-    techStack: [
-      "Next.js",
+      "React Native",
       "Node.js",
-      "FFmpeg",
-      "Cloud storage",
-      "AI APIs",
+      "REST APIs",
+      "PostgreSQL",
+      "MongoDB",
+      "Firebase Authentication",
     ],
   },
 
   "tambola-caller": {
     heroTagline:
-      "A smooth, modern Tambola / Housie caller for parties and streams.",
+      "A smooth, modern Tambola / Housie caller for parties and live games.",
     overview:
-      "Tambola Caller is a beautifully designed number caller for Housie / Tambola games. It focuses on readability, pacing, and animation so events feel fun and professional—whether at home or live-streamed.",
+      "Tambola Caller is a mobile utility application designed to host Tambola (Housie) games with ease. It automates number calling and visual display, making games faster, error-free, and more engaging for both in-person and online events.",
     features: [
-      "Randomized number calling with no repeats.",
-      "Clean number board with highlights.",
-      "Configurable pace and audio feedback.",
-      "Offline-friendly for events.",
-      "Designed for casting and screen sharing.",
+      "Automatic randomized number calling with no repeats.",
+      "Clear visual board showing called numbers.",
+      "Smooth gameplay flow with minimal distractions.",
+      "Offline-friendly support for live events.",
+      "Ad placement optimized to avoid breaking gameplay.",
     ],
     idealFor: [
       "Hosts running Tambola / Housie nights.",
-      "Content creators streaming live games.",
-      "Community events and family gatherings.",
+      "Families and community events.",
+      "Content creators hosting live or streamed games.",
     ],
     techStack: [
       "React Native",
       "Mobile UI frameworks",
-      "Local state management",
+      "Ad monetization SDKs",
+      "Performance optimization",
+    ],
+  },
+
+  managerly: {
+    heroTagline:
+      "A secure, minimal password manager built with privacy at its core.",
+    overview:
+      "Managerly is a password and sensitive data management application focused on strong encryption and simplicity. It is designed for users who want secure storage without unnecessary complexity or hidden data handling.",
+    features: [
+      "Encrypted password and sensitive data storage.",
+      "Minimal, distraction-free mobile interface.",
+      "Cross-platform mobile support.",
+      "Security-first design with modern encryption standards.",
+    ],
+    idealFor: [
+      "Privacy-conscious individuals.",
+      "Users managing multiple credentials securely.",
+      "Anyone looking for a simple and trustworthy password manager.",
+    ],
+    techStack: [
+      "React Native",
+      "Node.js",
+      "Encryption libraries",
+      "Secure local storage",
     ],
   },
 };
@@ -209,31 +202,31 @@ export const services = [
   {
     title: "Product & MVP Development",
     description:
-      "Full-stack web and mobile builds using React, React Native, Node.js, and modern tooling.",
+      "End-to-end web and mobile product development using React, React Native, Node.js, and modern tooling.",
   },
   {
     title: "AI & Automation",
     description:
-      "Integrations with AI APIs, workflow automation, and tooling to save hours every week.",
+      "Practical AI integrations and automation pipelines that reduce manual work and improve efficiency.",
   },
   {
     title: "Client Apps & Dashboards",
     description:
-      "Beautiful, performant interfaces with dashboards, analytics, and responsive design.",
+      "Clean, high-performance user interfaces with dashboards, analytics, and responsive design.",
   },
   {
     title: "SaaS Platforms",
     description:
-      "Subscription-based apps with auth, billing, dashboards, and admin panels.",
+      "Scalable SaaS applications with authentication, subscriptions, dashboards, and admin panels.",
   },
   {
     title: "API & Backend Development",
     description:
-      "REST/GraphQL APIs, integrations, and secure backends ready for scale.",
+      "Secure, well-structured REST APIs and backend systems built for growth and maintainability.",
   },
   {
     title: "Technical Consulting",
     description:
-      "Architecture, code audits, and roadmap planning with a builder’s mindset.",
+      "Architecture planning, code reviews, and technical guidance with a product-focused mindset.",
   },
 ];

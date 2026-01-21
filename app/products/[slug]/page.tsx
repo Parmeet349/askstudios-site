@@ -10,15 +10,12 @@ import {
 import { notFound } from "next/navigation";
 
 type ProductPageProps = {
-  // 👇 params is a Promise in your Next version
   params: Promise<{ slug: string }>;
 };
 
 export default async function ProductDetailPage({ params }: ProductPageProps) {
-  // ✅ unwrap the Promise
   const { slug } = await params;
 
-  // Find the product from the central config
   const product = products.find((p) => p.slug === slug);
 
   if (!product) {
@@ -26,6 +23,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   }
 
   const details = productDetails[product.slug];
+  const links = product.links;
 
   return (
     <SiteShell>
@@ -59,37 +57,84 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 {product.status === "live"
                   ? "Live"
                   : product.status === "beta"
-                  ? "In beta"
-                  : "Coming soon"}
+                    ? "In beta"
+                    : "Coming soon"}
               </span>
             </div>
           </div>
 
           {/* Side CTA card */}
-          <GlassCard className="bg-slate-900/70">
-            <h2 className="text-sm font-semibold text-slate-50">
-              Work with ASK Studios
-            </h2>
-            <p className="mt-2 text-xs text-slate-300/80">
-              Want something like{" "}
-              <span className="font-semibold">{product.name}</span> for your
-              own business or use case? ASK Studios can design and build a
-              version tailored to you.
-            </p>
-            <a
-              href="/contact"
-              className="mt-4 inline-flex w-full items-center justify-center rounded-full bg-emerald-400 px-4 py-2 text-xs font-semibold text-slate-950 hover:bg-emerald-300"
-            >
-              Start a project
-            </a>
-            <p className="mt-2 text-[11px] text-slate-400">
-              Mention <span className="font-semibold">{product.name}</span> in
-              your message.
-            </p>
+          <GlassCard className="space-y-4 bg-slate-900/70">
+            {links && (
+              <>
+                <h2 className="text-sm font-semibold text-slate-50">
+                  Live links
+                </h2>
+                <div className="flex flex-col gap-2">
+                  {links.website && (
+                    <a
+                      href={links.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-full bg-slate-800 px-4 py-2 text-xs text-slate-200 hover:bg-slate-700"
+                    >
+                      Visit website
+                    </a>
+                  )}
+                  {links.playStore && (
+                    <a
+                      href={links.playStore}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-full bg-slate-800 px-4 py-2 text-xs text-slate-200 hover:bg-slate-700"
+                    >
+                      View on Play Store
+                    </a>
+                  )}
+                  {links.appStore && (
+                    <a
+                      href={links.appStore}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-full bg-slate-800 px-4 py-2 text-xs text-slate-200 hover:bg-slate-700"
+                    >
+                      View on App Store
+                    </a>
+                  )}
+                  {links.sourceCode && (
+                    <a
+                      href={links.sourceCode}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-full bg-slate-800 px-4 py-2 text-xs text-slate-200 hover:bg-slate-700"
+                    >
+                      View source code
+                    </a>
+                  )}
+                </div>
+              </>
+            )}
+
+            <div className="pt-2">
+              <h2 className="text-sm font-semibold text-slate-50">
+                Work with ASK Studios
+              </h2>
+              <p className="mt-2 text-xs text-slate-300/80">
+                Want something like{" "}
+                <span className="font-semibold">{product.name}</span> for your
+                business? ASK Studios can build a tailored version for you.
+              </p>
+              <a
+                href="/contact"
+                className="mt-4 inline-flex w-full items-center justify-center rounded-full bg-emerald-400 px-4 py-2 text-xs font-semibold text-slate-950 hover:bg-emerald-300"
+              >
+                Start a project
+              </a>
+            </div>
           </GlassCard>
         </div>
 
-        {/* Overview + features + side info */}
+        {/* Overview + features */}
         <div className="grid gap-8 md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
           <div>
             <SectionHeader
