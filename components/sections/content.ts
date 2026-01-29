@@ -81,6 +81,20 @@ export const products: Product[] = [
     href: "/products/managerly",
     cta: "View details",
   },
+  {
+    slug: "resumerail",
+    name: "ResumeRail",
+    tag: "AI · Careers",
+    shortDescription: "Cross-platform AI resume builder designed to optimize content for ATS and help candidates secure interviews faster.",
+    status: "beta",
+    platforms: ["Web", "Android", "iOS"],
+    href: "/products/resumerail",
+    cta: "View details",
+    links: {
+      website: "https://resumerail.com",
+    }
+  },
+
 ];
 
 
@@ -194,6 +208,34 @@ export const productDetails: Record<
       "Node.js",
       "Encryption libraries",
       "Secure local storage",
+    ],
+  },
+  resumerail: {
+    heroTagline:
+      "AI-powered resume builder designed to beat ATS and help candidates land interviews faster.",
+    overview:
+      "ResumeRail is a cross-platform, AI-driven resume builder that helps job seekers create ATS-optimized resumes with higher relevance and impact. Instead of relying on static templates, ResumeRail analyzes job descriptions and rewrites professional experience to match role requirements while adapting content to the user's career level.",
+    features: [
+      "AI-powered resume content rewriting and optimization.",
+      "ATS-focused job description matching with instant feedback.",
+      "Career-level aware resume generation (students to executives).",
+      "Real-time sync between mobile and web platforms.",
+      "Live resume editing with continuous content improvement.",
+    ],
+    idealFor: [
+      "Students and fresh graduates entering the job market.",
+      "Professionals applying to competitive roles.",
+      "Career switchers tailoring resumes for new industries.",
+      "Senior professionals refining leadership-focused resumes.",
+    ],
+    techStack: [
+      "React Native",
+      "Next.js",
+      "Node.js",
+      "REST APIs",
+      "PostgreSQL",
+      "MongoDB",
+      "AI/LLM-based content engine",
     ],
   },
 };
