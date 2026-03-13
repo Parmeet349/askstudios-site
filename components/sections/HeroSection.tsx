@@ -2,6 +2,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const container = {
   hidden: { opacity: 0, y: 16 },
@@ -98,37 +99,44 @@ export default function HeroSection() {
             {[
               {
                 name: "AutoLog",
-                subtitle: "Vehicle & fuel automation",
+                subtitle: "Vehicle & fuel tracking",
                 badge: "Live",
                 badgeColor: "bg-emerald-500/10 text-emerald-300",
+                href: "/products/autolog",
               },
               {
-                name: "Intervue.AI",
-                subtitle: "AI interview practice",
+                name: "ResumeRail",
+                subtitle: "AI resume builder",
                 badge: "In beta",
                 badgeColor: "bg-sky-500/10 text-sky-300",
+                href: "/products/resumerail",
               },
               {
                 name: "DripReel",
                 subtitle: "Short-form automation",
                 badge: "Coming soon",
                 badgeColor: "bg-indigo-500/10 text-indigo-300",
+                href: "/products",
               },
             ].map((app, index) => (
               <motion.div
                 key={app.name}
-                className="flex items-center justify-between rounded-2xl bg-slate-800/60 px-4 py-3"
                 initial={{ opacity: 0, x: 12 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.25 + index * 0.08 }}
               >
-                <div>
-                  <div className="font-medium text-slate-50">{app.name}</div>
-                  <div className="text-slate-400">{app.subtitle}</div>
-                </div>
-                <span className={`rounded-full px-3 py-1 ${app.badgeColor}`}>
-                  {app.badge}
-                </span>
+                <Link
+                  href={app.href}
+                  className="flex items-center justify-between rounded-2xl bg-slate-800/60 px-4 py-3 hover:bg-slate-800 transition-colors"
+                >
+                  <div>
+                    <div className="font-medium text-slate-50">{app.name}</div>
+                    <div className="text-slate-400">{app.subtitle}</div>
+                  </div>
+                  <span className={`rounded-full px-3 py-1 ${app.badgeColor}`}>
+                    {app.badge}
+                  </span>
+                </Link>
               </motion.div>
             ))}
 
