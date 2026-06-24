@@ -25,7 +25,7 @@ const POSTS_PATH = path.join(process.cwd(), "content", "blog");
 
 function getPostFilePaths() {
   if (!fs.existsSync(POSTS_PATH)) return [];
-  return fs.readdirSync(POSTS_PATH).filter((f) => f.endsWith(".md") || f.endsWith(".mdx"));
+  return fs.readdirSync(POSTS_PATH).filter((f) => (f.endsWith(".md") || f.endsWith(".mdx")) && !f.startsWith("."));
 }
 
 export function getAllPosts() {
