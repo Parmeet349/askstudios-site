@@ -90,3 +90,10 @@ Tailor your geography adventure to suit your preferences:
 FlagQuest turns geography from a school subject into an engaging adventure. Get ready to master the world's flags, challenge your friends, and track your path to global expertise!
 
 👉 📱 **Start Playing Today:** Download the app on your mobile device and begin your journey!
+
+---
+
+### Links & Support
+*   **Need Help?** Visit the dedicated [FlagQuest Support & Help Center](/flagquest-support) to search FAQs or submit a support ticket.
+*   **Privacy & Legal:** Read our [FlagQuest Privacy Policy](/flagquest-privacy-policy) and [FlagQuest Terms of Service](/flagquest-terms).
+

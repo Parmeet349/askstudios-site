@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         "/services",
         "/tambola-privacy-policy",
         "/flagquest-privacy-policy",
+        "/flagquest-support",
         "/flagquest-terms",
         "/terms",
     ].map((route) => ({

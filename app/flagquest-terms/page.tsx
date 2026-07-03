@@ -1,3 +1,4 @@
+import Link from "next/link";
 import SiteShell from "@/components/layout/SiteShell";
 import SectionHeader from "@/components/ui/SectionHeader";
 
@@ -102,7 +103,7 @@ export default function FlagQuestTermsPage() {
                         9. Contact Us
                     </h3>
                     <p>
-                        If you have any questions or feedback regarding these Terms, please contact us at:
+                        If you have any questions, feedback, or need technical support regarding the App or these Terms, please visit our dedicated <Link href="/flagquest-support" className="text-emerald-300 hover:underline">FlagQuest Support & Help Center</Link> or contact us at:
                         <br />
                         Developer: <span className="text-slate-200 font-semibold">ASK Studios</span>
                         <br />

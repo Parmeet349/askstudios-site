@@ -1,3 +1,4 @@
+import Link from "next/link";
 import SiteShell from "@/components/layout/SiteShell";
 import SectionHeader from "@/components/ui/SectionHeader";
 
@@ -104,7 +105,7 @@ export default function FlagQuestPrivacyPolicyPage() {
                         7. Contact Us
                     </h3>
                     <p>
-                        If you have any questions or concerns about this Privacy Policy, please contact:
+                        If you have any questions, concerns, or need technical support regarding the App, please visit our dedicated <Link href="/flagquest-support" className="text-emerald-300 hover:underline">FlagQuest Support & Help Center</Link> or email us at:
                         <br />
                         <span className="text-emerald-300 font-semibold">
                             info@askstudios.net
