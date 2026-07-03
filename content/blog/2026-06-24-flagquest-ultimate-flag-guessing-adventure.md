@@ -1,6 +1,6 @@
 ---
-title: "FlagQuest: The Ultimate Flag Guessing Adventure Game"
-description: "Discover FlagQuest, a vibrant and interactive mobile game designed for geography enthusiasts and trivia lovers to master the world's 195 flags through visual, logical, and social gameplay."
+title: " FlagQuest: World Flag Quiz"
+description: "Discover  FlagQuest: World Flag Quiz, a vibrant and interactive mobile game designed for geography enthusiasts and trivia lovers to master the world's 195 flags through visual, logical, and social gameplay."
 date: "2026-06-24"
 tags: ["gaming","geography","mobile-app","education","trivia"]
 author:
