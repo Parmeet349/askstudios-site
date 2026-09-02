@@ -19,6 +19,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         "/flagquest-privacy-policy",
         "/flagquest-support",
         "/flagquest-terms",
+        "/before-you-go/privacy",
+        "/before-you-go/terms",
         "/terms",
     ].map((route) => ({
         url: `${siteUrl}${route}`,

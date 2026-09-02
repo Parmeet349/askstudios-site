@@ -92,9 +92,22 @@ export const products: Product[] = [
     cta: "View details",
     links: {
       website: "https://resumerail.com",
-    }
+    },
   },
-
+  {
+    slug: "before-you-go",
+    name: "Before You Go",
+    tag: "Mobile · Productivity · Lifestyle",
+    shortDescription:
+      "Minimalist, ritual-driven departure checklist that reminds you of your essentials right before you leave.",
+    status: "live",
+    platforms: ["iOS", "Android"],
+    href: "/products/before-you-go",
+    cta: "View details",
+    links: {
+      website: "https://askstudios.net/before-you-go/privacy",
+    },
+  },
 ];
 
 
@@ -236,6 +249,32 @@ export const productDetails: Record<
       "PostgreSQL",
       "MongoDB",
       "AI/LLM-based content engine",
+    ],
+  },
+  "before-you-go": {
+    heroTagline: "Never forget your keys, charger, or essentials before you leave.",
+    overview:
+      "Before You Go is a minimalist, ritual-driven departure checklist that reminds you of your essentials right before you head out the door. Built offline-first with zero tracking, it ensures effortless and stress-free departure habits for work, the gym, travel, and daily errands.",
+    features: [
+      "Place-based departure rituals (Work, Gym, Travel, Errands).",
+      "Smart timely departure reminders (5, 15, 30, or 60 minutes prior).",
+      "Lockscreen interactive notifications with checklist preview.",
+      "'Always Bring' pinned essentials and quick one-time items.",
+      "100% private & offline-first: no accounts, logins, tracking, or ads.",
+      "Ultra-clean brutalist typography with tactile haptic feedback.",
+    ],
+    idealFor: [
+      "Daily commuters wanting peace of mind before walking out the door.",
+      "Gym goers and athletes packing specialized gear.",
+      "Frequent travelers needing essential packing checklists.",
+      "Anyone building mindful daily exit rituals.",
+    ],
+    techStack: [
+      "React Native",
+      "Expo",
+      "Local Storage (AsyncStorage)",
+      "Local Notifications",
+      "Haptics",
     ],
   },
 };
