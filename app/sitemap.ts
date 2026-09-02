@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         "/flagquest-support",
         "/flagquest-terms",
         "/before-you-go/privacy",
+        "/before-you-go/support",
         "/before-you-go/terms",
         "/terms",
     ].map((route) => ({

@@ -122,6 +122,10 @@ export default function BeforeYouGoPrivacyPage() {
                     </ul>
 
                     <div className="pt-6 border-t border-slate-800/80 flex flex-wrap gap-4 text-xs text-slate-400">
+                        <Link href="/before-you-go/support" className="text-emerald-300 hover:underline">
+                            Support &amp; Help Center
+                        </Link>
+                        <span>•</span>
                         <Link href="/before-you-go/terms" className="text-emerald-300 hover:underline">
                             View Terms &amp; Conditions
                         </Link>
