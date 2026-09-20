@@ -1,6 +1,15 @@
+import { Metadata } from "next";
 import Link from "next/link";
 import SiteShell from "@/components/layout/SiteShell";
 import SectionHeader from "@/components/ui/SectionHeader";
+
+export const metadata: Metadata = {
+  title: "FlagQuest Terms of Service",
+  description: "The rules and conditions for playing FlagQuest mobile application.",
+  alternates: {
+    canonical: "/flagquest-terms",
+  },
+};
 
 export default function FlagQuestTermsPage() {
     return (

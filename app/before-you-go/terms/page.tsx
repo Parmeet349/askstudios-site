@@ -6,6 +6,9 @@ import SectionHeader from "@/components/ui/SectionHeader";
 export const metadata: Metadata = {
     title: "Terms and Conditions | Before You Go - ASK Studios",
     description: "Terms and Conditions for Before You Go: Exit Checklist mobile application.",
+    alternates: {
+        canonical: "/before-you-go/terms",
+    },
 };
 
 export default function BeforeYouGoTermsPage() {

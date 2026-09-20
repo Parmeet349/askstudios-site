@@ -1,5 +1,14 @@
+import { Metadata } from "next";
 import SiteShell from "@/components/layout/SiteShell";
 import SectionHeader from "@/components/ui/SectionHeader";
+
+export const metadata: Metadata = {
+  title: "About ASK Studios",
+  description: "A product-focused studio based in Ontario, Canada—building apps, automations, and AI-powered tools.",
+  alternates: {
+    canonical: "/about",
+  },
+};
 
 export default function AboutPage() {
   return (

@@ -3,7 +3,7 @@ import { getAllPosts } from "@/lib/posts";
 import { products } from "@/components/sections/content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const siteUrl = process.env.SITE_URL || "https://askstudios.net";
+    const siteUrl = process.env.SITE_URL || "https://www.askstudios.net";
 
     // Define static routes
     const staticRoutes = [

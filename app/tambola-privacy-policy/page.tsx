@@ -1,5 +1,14 @@
+import { Metadata } from "next";
 import SiteShell from "@/components/layout/SiteShell";
 import SectionHeader from "@/components/ui/SectionHeader";
+
+export const metadata: Metadata = {
+  title: "Tambola Caller Privacy Policy",
+  description: "Privacy details for the Tambola Caller mobile application.",
+  alternates: {
+    canonical: "/tambola-privacy-policy",
+  },
+};
 
 export default function TambolaPrivacyPage() {
     return (

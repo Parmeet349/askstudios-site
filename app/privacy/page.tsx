@@ -1,5 +1,14 @@
+import { Metadata } from "next";
 import SiteShell from "@/components/layout/SiteShell";
 import SectionHeader from "@/components/ui/SectionHeader";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description: "How ASK Studios collects, uses, and protects your information.",
+  alternates: {
+    canonical: "/privacy",
+  },
+};
 
 export default function PrivacyPage() {
   return (

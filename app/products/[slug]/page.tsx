@@ -9,9 +9,48 @@ import {
 } from "@/components/sections/content";
 import { notFound } from "next/navigation";
 
+import { Metadata } from "next";
+
 type ProductPageProps = {
   params: Promise<{ slug: string }>;
 };
+
+export async function generateStaticParams() {
+  return products.map((product) => ({
+    slug: product.slug,
+  }));
+}
+
+export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const product = products.find((p) => p.slug === slug);
+  if (!product) {
+    return {
+      title: "Product Not Found",
+    };
+  }
+
+  const details = productDetails[product.slug];
+  const title = `${product.name} - ${product.tag}`;
+  const description = details?.overview || product.shortDescription;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `/products/${product.slug}`,
+    },
+    openGraph: {
+      title: `${product.name} | ASK Studios`,
+      description,
+      url: `https://www.askstudios.net/products/${product.slug}`,
+    },
+    twitter: {
+      title: `${product.name} | ASK Studios`,
+      description,
+    },
+  };
+}
 
 export default async function ProductDetailPage({ params }: ProductPageProps) {
   const { slug } = await params;
@@ -25,8 +64,27 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   const details = productDetails[product.slug];
   const links = product.links;
 
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: product.name,
+    description: details?.overview || product.shortDescription,
+    applicationCategory: product.tag,
+    operatingSystem: product.platforms.join(", "),
+    url: `https://www.askstudios.net/products/${product.slug}`,
+    author: {
+      "@type": "Organization",
+      name: "ASK Studios",
+      url: "https://www.askstudios.net",
+    },
+  };
+
   return (
     <SiteShell>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
       <section className="mt-10 space-y-10">
         {/* Hero */}
         <div className="grid gap-8 md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] md:items-start">

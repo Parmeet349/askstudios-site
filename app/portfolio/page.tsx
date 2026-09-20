@@ -1,6 +1,15 @@
+import { Metadata } from "next";
 import SiteShell from "@/components/layout/SiteShell";
 import SectionHeader from "@/components/ui/SectionHeader";
 import GlassCard from "@/components/ui/GlassCard";
+
+export const metadata: Metadata = {
+  title: "Portfolio",
+  description: "Selected portfolio, apps, and case studies built by ASK Studios.",
+  alternates: {
+    canonical: "/portfolio",
+  },
+};
 
 const portfolioItems = [
   {

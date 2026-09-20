@@ -1,8 +1,17 @@
+import { Metadata } from "next";
 import SiteShell from "@/components/layout/SiteShell";
 import SectionHeader from "@/components/ui/SectionHeader";
 import GlassCard from "@/components/ui/GlassCard";
 import { products } from "@/components/sections/content";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Products",
+  description: "Apps, tools, and platforms built by ASK Studios—ranging from mobile utilities to AI-powered SaaS.",
+  alternates: {
+    canonical: "/products",
+  },
+};
 
 export default function ProductsPage() {
   return (

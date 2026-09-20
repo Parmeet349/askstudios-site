@@ -1,6 +1,15 @@
+import { Metadata } from "next";
 import Link from "next/link";
 import SiteShell from "@/components/layout/SiteShell";
 import SectionHeader from "@/components/ui/SectionHeader";
+
+export const metadata: Metadata = {
+  title: "FlagQuest Privacy Policy",
+  description: "Privacy details for the FlagQuest mobile application.",
+  alternates: {
+    canonical: "/flagquest-privacy-policy",
+  },
+};
 
 export default function FlagQuestPrivacyPolicyPage() {
     return (

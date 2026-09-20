@@ -105,7 +105,7 @@ export const products: Product[] = [
     href: "/products/before-you-go",
     cta: "View details",
     links: {
-      website: "https://askstudios.net/before-you-go/privacy",
+      website: "https://www.askstudios.net/before-you-go/privacy",
     },
   },
 ];

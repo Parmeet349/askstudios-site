@@ -6,6 +6,9 @@ import SectionHeader from "@/components/ui/SectionHeader";
 export const metadata: Metadata = {
     title: "Privacy Policy | Before You Go - ASK Studios",
     description: "Privacy Policy for Before You Go: Exit Checklist mobile application. 100% private and offline-first.",
+    alternates: {
+        canonical: "/before-you-go/privacy",
+    },
 };
 
 export default function BeforeYouGoPrivacyPage() {

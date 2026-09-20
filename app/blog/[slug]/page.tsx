@@ -27,12 +27,15 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 
   const fm = post.frontMatter;
-  const siteUrl = process.env.SITE_URL || "https://askstudios.net";
+  const siteUrl = process.env.SITE_URL || "https://www.askstudios.net";
   const url = `${siteUrl}/blog/${post.slug}`;
 
   return {
     title: fm.title,
     description: fm.description || undefined,
+    alternates: {
+      canonical: `/blog/${post.slug}`,
+    },
     openGraph: {
       title: fm.title,
       description: fm.description,
@@ -78,9 +81,41 @@ export default async function PostPage({ params }: Props) {
     .slice(0, 3);
 
   const fallbackRelated = related.length ? related : all.filter((p) => p.slug !== slug).slice(0, 3);
+  const siteUrl = process.env.SITE_URL || "https://www.askstudios.net";
+
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: frontMatter.title,
+    description: frontMatter.description || undefined,
+    image: frontMatter.image ? `${siteUrl}${frontMatter.image}` : undefined,
+    datePublished: frontMatter.date,
+    dateModified: frontMatter.date,
+    author: {
+      "@type": "Person",
+      name: frontMatter.author?.name || "Parmeet Singh Banga",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "ASK Studios",
+      url: "https://www.askstudios.net",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.askstudios.net/logo.png",
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${siteUrl}/blog/${slug}`,
+    },
+  };
 
   return (
     <SiteShell>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <section className="mt-10">
         <SectionHeader
           eyebrow="Blog"
@@ -173,13 +208,13 @@ export default async function PostPage({ params }: Props) {
                 <div className="text-slate-200 font-semibold">Share this post</div>
                 <div className="mt-2 flex gap-2">
                   <a
-                    href={`mailto:?subject=${encodeURIComponent(frontMatter.title)}&body=${encodeURIComponent(`${process.env.SITE_URL || "https://askstudios.net"}/blog/${slug}`)}`}
+                    href={`mailto:?subject=${encodeURIComponent(frontMatter.title)}&body=${encodeURIComponent(`${siteUrl}/blog/${slug}`)}`}
                     className="rounded-md px-3 py-1 text-xs bg-slate-800/60 hover:bg-slate-800"
                   >
                     Email
                   </a>
                   <a
-                    href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(frontMatter.title)}&url=${encodeURIComponent(`${process.env.SITE_URL || "https://askstudios.net"}/blog/${slug}`)}`}
+                    href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(frontMatter.title)}&url=${encodeURIComponent(`${siteUrl}/blog/${slug}`)}`}
                     target="_blank"
                     rel="noreferrer"
                     className="rounded-md px-3 py-1 text-xs bg-slate-800/60 hover:bg-slate-800"

@@ -1,0 +1,35 @@
+# ASK Studios
+
+> ASK Studios is a product-focused software development studio based in Ontario, Canada, led by Parmeet Singh Banga. The studio designs, builds, and ships mobile applications (iOS and Android), web applications, automations, and practical AI integrations.
+
+## Products
+
+- [AutoLog](https://www.askstudios.net/products/autolog): Smart vehicle logbook and fuel tracking app for everyday drivers and small fleets with receipt scanning and expense analytics. Live on iOS and Android.
+- [BrieflyCA](https://www.askstudios.net/products/brieflyca): Canada-only mobile news app delivering AI-generated news summaries in under 60 seconds without information overload. Live on iOS and Android.
+- [Before You Go](https://www.askstudios.net/products/before-you-go): Minimalist, ritual-driven departure checklist that reminds users of essentials right before leaving. 100% private and offline-first. Live on iOS and Android.
+- [ResumeRail](https://www.askstudios.net/products/resumerail): AI-powered resume builder designed to optimize content for ATS (Applicant Tracking Systems) and match job requirements. In beta.
+- [Tambola Caller](https://www.askstudios.net/products/tambola-caller): Modern Housie/Tambola number caller utility app designed for parties and live events. Live on iOS and Android.
+- [Managerly](https://www.askstudios.net/products/managerly): Privacy-conscious, encryption-first password and credential manager. In beta.
+
+## Services
+
+- [Product & MVP Development](https://www.askstudios.net/services): End-to-end mobile and web product development from idea to launch.
+- [AI Integrations & Automation](https://www.askstudios.net/services): LLM integrations, RAG pipelines, chatbots, and custom workflow automations.
+- [Client Apps & Dashboards](https://www.askstudios.net/services): High-performance user interfaces, analytics dashboards, and responsive web platforms.
+- [SaaS Platforms](https://www.askstudios.net/services): Scalable SaaS applications with authentication, billing, and admin panels.
+- [Technical Consulting](https://www.askstudios.net/services): Architecture planning, code reviews, and product strategy.
+
+## Core Technologies
+
+- Mobile: React Native, Expo, iOS, Android
+- Frontend: Next.js, React, TypeScript, Tailwind CSS
+- Backend: Node.js, REST APIs, PostgreSQL, MongoDB, Firebase
+- AI & Automation: LLM APIs, prompt engineering, RAG, Python, automation pipelines
+
+## Key Links & Resources
+
+- [Website](https://www.askstudios.net)
+- [About](https://www.askstudios.net/about)
+- [Portfolio & Case Studies](https://www.askstudios.net/portfolio)
+- [Blog & Technical Articles](https://www.askstudios.net/blog)
+- [Contact](https://www.askstudios.net/contact): Start a project or email info@askstudios.net

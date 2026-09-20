@@ -8,7 +8,7 @@ function escapeHtml(str: string) {
 
 export async function GET() {
   const posts = getAllPosts();
-  const siteUrl = process.env.SITE_URL || "https://askstudios.net";
+  const siteUrl = process.env.SITE_URL || "https://www.askstudios.net";
   const feedItems = posts
     .map((post) => {
       const url = `${siteUrl}/blog/${post.slug}`;

@@ -1,9 +1,17 @@
-// src/app/blog/page.tsx
+import { Metadata } from "next";
 import SiteShell from "@/components/layout/SiteShell";
 import SectionHeader from "@/components/ui/SectionHeader";
 import GlassCard from "@/components/ui/GlassCard";
 import Link from "next/link";
 import { getAllPosts } from "@/lib/posts";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description: "Articles, case studies, and technical write-ups on mobile apps, AI automation, and software development from ASK Studios.",
+  alternates: {
+    canonical: "/blog",
+  },
+};
 
 export default async function BlogPage() {
   const posts = getAllPosts();
