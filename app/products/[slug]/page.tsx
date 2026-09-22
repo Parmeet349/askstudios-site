@@ -89,6 +89,11 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         {/* Hero */}
         <div className="grid gap-8 md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] md:items-start">
           <div>
+            {product.badge && (
+              <span className="mb-3 inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-0.5 text-[11px] font-medium text-emerald-300">
+                {product.badge}
+              </span>
+            )}
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300/80">
               {product.tag}
             </p>
@@ -137,6 +142,16 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                       className="rounded-full bg-slate-800 px-4 py-2 text-xs text-slate-200 hover:bg-slate-700"
                     >
                       Visit website
+                    </a>
+                  )}
+                  {links.whatsapp && (
+                    <a
+                      href={links.whatsapp}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-full bg-emerald-950/80 border border-emerald-500/40 px-4 py-2 text-xs font-medium text-emerald-200 hover:bg-emerald-900/90"
+                    >
+                      Chat on WhatsApp ↗
                     </a>
                   )}
                   {links.playStore && (

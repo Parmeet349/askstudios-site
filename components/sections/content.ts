@@ -15,6 +15,7 @@ export type Product = {
     playStore?: string;
     appStore?: string;
     sourceCode?: string;
+    whatsapp?: string;
   };
 };
 
@@ -106,6 +107,22 @@ export const products: Product[] = [
     cta: "View details",
     links: {
       website: "https://www.askstudios.net/before-you-go/privacy",
+    },
+  },
+  {
+    slug: "jeet-auto-parts",
+    name: "Jeet Auto Parts",
+    tag: "Automotive · Spare Parts · Retail",
+    shortDescription:
+      "Specialized two-wheeler aftermarket spare parts dealer in Grant Road, Mumbai, offering verified genuine parts with instant WhatsApp fitment support.",
+    status: "live",
+    platforms: ["Web", "WhatsApp Support", "Retail Hub"],
+    href: "/products/jeet-auto-parts",
+    cta: "View details",
+    badge: "Client Showcase",
+    links: {
+      website: "https://jeetauto.in",
+      whatsapp: "https://wa.me/919323089061",
     },
   },
 ];
@@ -275,6 +292,31 @@ export const productDetails: Record<
       "Local Storage (AsyncStorage)",
       "Local Notifications",
       "Haptics",
+    ],
+  },
+  "jeet-auto-parts": {
+    heroTagline:
+      "Genuine spare parts for bikes and scooters across Mumbai with instant WhatsApp fitment verification.",
+    overview:
+      "Jeet Auto Parts is a specialized two-wheeler aftermarket parts dealer headquartered in Grant Road East, Mumbai. Providing genuine fitment consultation and spare parts for all major motorcycle and scooter brands with instant WhatsApp verification.",
+    features: [
+      "Guaranteed fitment compatibility across all major two-wheeler brands (Honda, Hero, Bajaj, TVS, Suzuki, Royal Enfield, Yamaha).",
+      "Instant WhatsApp photo & registration consultation with in-house parts specialists.",
+      "Strategic Mumbai retail hub steps from Grant Road station for rapid in-store pickup or citywide dispatch.",
+      "Comprehensive genuine inventory across brake pads, chain-sprocket kits, air/oil filters, clutch sets, electricals, and suspension.",
+      "Direct guidance to eliminate counterfeit parts and reduce vehicle maintenance downtime.",
+    ],
+    idealFor: [
+      "Daily motorcycle and scooter commuters across Greater Mumbai.",
+      "DIY riders and enthusiasts performing routine maintenance and overhauls.",
+      "Local garage technicians needing fast, verified OEM and aftermarket sourcing.",
+      "Delivery fleet operators requiring dependable replacement turnaround.",
+    ],
+    techStack: [
+      "Digital Showcase",
+      "WhatsApp Business Direct",
+      "E-Commerce Catalog",
+      "Local Inventory Verification",
     ],
   },
 };

@@ -10,6 +10,7 @@
 - [ResumeRail](https://www.askstudios.net/products/resumerail): AI-powered resume builder designed to optimize content for ATS (Applicant Tracking Systems) and match job requirements. In beta.
 - [Tambola Caller](https://www.askstudios.net/products/tambola-caller): Modern Housie/Tambola number caller utility app designed for parties and live events. Live on iOS and Android.
 - [Managerly](https://www.askstudios.net/products/managerly): Privacy-conscious, encryption-first password and credential manager. In beta.
+- [Jeet Auto Parts](https://www.askstudios.net/products/jeet-auto-parts): Two-wheeler aftermarket spare parts dealer in Grant Road, Mumbai, featuring verified fitment and instant WhatsApp consultation. Live web showcase.
 
 ## Services
 
