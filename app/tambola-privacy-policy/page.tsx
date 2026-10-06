@@ -13,16 +13,20 @@ export const metadata: Metadata = {
 export default function TambolaPrivacyPage() {
     return (
         <SiteShell>
-            <section className="mt-10 max-w-3xl">
-                <SectionHeader
-                    eyebrow="Product Legal"
-                    title="Tambola Caller Privacy Policy"
-                    description="Privacy details for the Tambola Caller mobile application."
-                />
+            <div className="relative z-10 mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+                <section className="space-y-8">
+                    <SectionHeader
+                        eyebrow="PRODUCT LEGAL"
+                        telemetryCode="APP PRIVACY"
+                        title="Tambola Caller Privacy Policy"
+                        description="Privacy details for the Tambola Caller mobile application."
+                        gradientVariant="cyan"
+                    />
 
-                <div className="mt-8 space-y-6 text-sm text-slate-300/80 leading-relaxed">
-                    <p>
-                        <strong>Tambola Number Caller (Housie)</strong> is developed and owned
+                    <div className="rounded-3xl border border-white/[0.08] bg-[#070514]/85 p-8 shadow-2xl backdrop-blur-2xl sm:p-12">
+                        <div className="space-y-6 text-sm text-zinc-300 leading-relaxed">
+                            <p>
+                                <strong>Tambola Number Caller (Housie)</strong> is developed and owned
                         by ASK Studios. Your privacy is important to us. This Privacy Policy
                         explains how information is handled when you use the Tambola Caller
                         mobile application (“App”).
@@ -155,11 +159,13 @@ export default function TambolaPrivacyPage() {
                         </span>
                     </p>
 
-                    <p className="pt-4 text-xs text-slate-400">
+                    <p className="pt-4 text-xs text-zinc-500">
                         Last updated: December 26, 2025
                     </p>
                 </div>
+              </div>
             </section>
+          </div>
         </SiteShell>
     );
 }

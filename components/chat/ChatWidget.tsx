@@ -1,8 +1,8 @@
-// src/components/chat/ChatWidget.tsx
 "use client";
 
 import { useState, useRef, useEffect, FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Sparkles, X, Send, Bot, ArrowRight, User } from "lucide-react";
 
 type Role = "user" | "assistant";
 
@@ -17,7 +17,7 @@ export default function ChatWidget() {
     {
       role: "assistant",
       content:
-        "Hey, I’m the ASK Studios AI assistant. Ask me about our products, services, or what we can build for you.",
+        "Welcome to ASK Studios. I’m our live AI assistant. Ask me about our shipped products, mobile architecture, or how we can help build your software.",
     },
   ]);
   const [input, setInput] = useState("");
@@ -34,9 +34,23 @@ export default function ChatWidget() {
     if (isOpen) scrollToBottom();
   }, [isOpen, messages.length]);
 
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    const trimmed = input.trim();
+  // Listen for custom trigger from AIShowcaseSection
+  useEffect(() => {
+    const handleCustomPrompt = (e: any) => {
+      const prompt = e.detail?.prompt;
+      if (prompt) {
+        setIsOpen(true);
+        setInput(prompt);
+      }
+    };
+
+    window.addEventListener("open-ask-chat", handleCustomPrompt);
+    return () =>
+      window.removeEventListener("open-ask-chat", handleCustomPrompt);
+  }, []);
+
+  const sendMessage = async (messageText: string) => {
+    const trimmed = messageText.trim();
     if (!trimmed || isLoading) return;
 
     const userMessage: ChatMessage = { role: "user", content: trimmed };
@@ -63,7 +77,7 @@ export default function ChatWidget() {
           {
             role: "assistant",
             content:
-              "Sorry, something went wrong on my side. You can always email info@askstudios.net instead.",
+              "Sorry, I encountered an issue reaching the model. Feel free to contact our team directly at info@askstudios.net.",
           },
         ]);
       }
@@ -74,7 +88,7 @@ export default function ChatWidget() {
         {
           role: "assistant",
           content:
-            "I couldn’t reach the chat service. Please try again or contact us via email.",
+            "Connection interrupted. Please verify your network or email info@askstudios.net.",
         },
       ]);
     } finally {
@@ -82,45 +96,72 @@ export default function ChatWidget() {
     }
   };
 
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    sendMessage(input);
+  };
+
   return (
     <>
-      {/* Floating button */}
+      {/* Floating launcher button */}
       <button
         type="button"
         onClick={toggleOpen}
-        className="fixed bottom-5 right-5 z-40 rounded-full bg-emerald-400 px-4 py-2 text-xs font-semibold text-slate-950 shadow-lg shadow-emerald-500/30 hover:bg-emerald-300 focus:outline-none md:bottom-6 md:right-6"
+        className="fixed bottom-6 right-6 z-40 flex items-center gap-2.5 rounded-full border border-white/15 bg-[#070514]/95 px-4 py-2.5 text-xs font-semibold text-white shadow-2xl shadow-black/80 backdrop-blur-2xl transition-all duration-200 hover:border-violet-500/40 hover:bg-[#0c0922] hover:shadow-violet-500/20 focus:outline-none active:scale-95"
       >
-        {isOpen ? "Close chat" : "Chat with ASK AI"}
+        {isOpen ? (
+          <>
+            <X className="h-4 w-4 text-zinc-300" />
+            <span className="font-tech">Close</span>
+          </>
+        ) : (
+          <>
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+            </span>
+            <Sparkles className="h-3.5 w-3.5 text-violet-400" />
+            <span className="font-tech tracking-wide">Ask Studio AI</span>
+          </>
+        )}
       </button>
 
-      {/* Panel */}
+      {/* Chat Window Panel */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed bottom-16 right-3 z-40 w-[90vw] max-w-sm rounded-2xl border border-slate-700/70 bg-slate-950/95 p-3 shadow-2xl backdrop-blur md:bottom-20 md:right-6"
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed bottom-20 right-4 z-40 w-[92vw] max-w-md overflow-hidden rounded-3xl border border-white/15 bg-[#060414]/98 shadow-2xl shadow-black/95 backdrop-blur-3xl md:right-6"
           >
             {/* Header */}
-            <div className="flex items-center justify-between gap-3 border-b border-slate-800 pb-2">
-              <div>
-                <div className="text-xs font-semibold text-slate-100">
-                  ASK Studios AI Assistant
+            <div className="flex items-center justify-between border-b border-white/[0.08] bg-white/[0.02] px-5 py-3.5">
+              <div className="flex items-center gap-3">
+                <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-violet-500/15 text-violet-400 border border-violet-500/25">
+                  <Bot className="h-4 w-4" />
                 </div>
-                <div className="text-[11px] text-slate-400">
-                  Live demo chatbot powered by our own /api/chat + LLM.
+                <div>
+                  <div className="font-display text-sm font-bold text-white tracking-wide">
+                    ASK Studios Concierge
+                  </div>
+                  <div className="font-tech text-[10px] text-zinc-400">
+                    Edge Runtime · LLM Reasoning
+                  </div>
                 </div>
               </div>
-              <span className="flex items-center gap-1 text-[11px] text-emerald-300">
-                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                Live
-              </span>
+              <button
+                type="button"
+                onClick={toggleOpen}
+                className="rounded-lg p-1.5 text-zinc-400 hover:text-white hover:bg-white/[0.05] transition-colors"
+              >
+                <X className="h-4 w-4" />
+              </button>
             </div>
 
-            {/* Messages */}
-            <div className="mt-2 max-h-64 space-y-2 overflow-y-auto pr-1 text-xs">
+            {/* Messages Scroll Area */}
+            <div className="h-80 space-y-3.5 overflow-y-auto p-4 text-xs">
               {messages.map((m, i) => (
                 <div
                   key={i}
@@ -129,10 +170,10 @@ export default function ChatWidget() {
                   }`}
                 >
                   <div
-                    className={`max-w-[80%] rounded-2xl px-3 py-2 ${
+                    className={`max-w-[85%] rounded-2xl px-4 py-3 leading-relaxed ${
                       m.role === "user"
-                        ? "bg-emerald-500 text-slate-950"
-                        : "bg-slate-800 text-slate-100"
+                        ? "bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-medium shadow-md shadow-violet-500/20"
+                        : "border border-white/[0.08] bg-[#0c091f] text-zinc-200"
                     }`}
                   >
                     {m.content}
@@ -141,41 +182,36 @@ export default function ChatWidget() {
               ))}
               {isLoading && (
                 <div className="flex justify-start">
-                  <div className="inline-flex items-center gap-1 rounded-2xl bg-slate-800 px-3 py-2 text-[11px] text-slate-300">
-                    <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-slate-300" />
-                    <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-slate-400 [animation-delay:0.1s]" />
-                    <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-slate-500 [animation-delay:0.2s]" />
+                  <div className="inline-flex items-center gap-1.5 rounded-2xl border border-white/[0.08] bg-[#0c091f] px-4 py-2.5 text-[11px] text-zinc-400">
+                    <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-violet-400" />
+                    <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-violet-400 [animation-delay:0.15s]" />
+                    <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-violet-400 [animation-delay:0.3s]" />
                   </div>
                 </div>
               )}
               <div ref={bottomRef} />
             </div>
 
-            {/* Input */}
+            {/* Input Form */}
             <form
               onSubmit={handleSubmit}
-              className="mt-2 flex items-center gap-2 rounded-xl border border-slate-800 bg-slate-950 px-2 py-1"
+              className="border-t border-white/[0.08] bg-white/[0.02] p-3.5 flex items-center gap-2"
             >
               <input
-                className="flex-1 bg-transparent px-1 py-1 text-xs text-slate-50 outline-none placeholder:text-slate-500"
-                placeholder="Ask about our products, services, or ideas..."
+                className="flex-1 rounded-xl border border-white/[0.08] bg-black/50 px-4 py-2.5 text-xs text-white placeholder-zinc-500 outline-none transition-colors focus:border-violet-400"
+                placeholder="Ask about AutoLog, BrieflyCA, or studio services..."
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 disabled={isLoading}
               />
               <button
                 type="submit"
-                disabled={isLoading}
-                className="rounded-full bg-emerald-400 px-3 py-1 text-[11px] font-semibold text-slate-950 hover:bg-emerald-300 disabled:opacity-60"
+                disabled={isLoading || !input.trim()}
+                className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 text-white transition-all hover:from-violet-500 hover:to-indigo-500 disabled:opacity-40"
               >
-                Send
+                <Send className="h-4 w-4" />
               </button>
             </form>
-
-            <p className="mt-1 text-[10px] text-slate-500">
-              This chatbot is built by ASK Studios, a custom API route, and an
-              LLM.
-            </p>
           </motion.div>
         )}
       </AnimatePresence>

@@ -12,26 +12,42 @@ type Props = {
 
 export default function SiteShell({ children }: Props) {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50 antialiased">
-      {/* gradient background */}
-      <div className="pointer-events-none fixed inset-0 bg-gradient-to-br from-indigo-500/10 via-slate-900 to-emerald-500/10" />
-      <div className="pointer-events-none fixed inset-0 mix-blend-overlay opacity-40" />
+    <div
+      className="min-h-screen text-[#f0f0f8] selection:bg-violet-500/30 selection:text-violet-200 antialiased relative overflow-x-hidden flex flex-col"
+      style={{ background: "#04040c" }}
+    >
+      {/* Aurora animated background */}
+      <div className="aurora-bg" aria-hidden />
+      {/* Noise grain texture */}
+      <div className="grain-overlay" aria-hidden />
 
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col px-4 pb-10 pt-6 sm:px-6 lg:px-8">
+      {/* Subtle dot grid overlay */}
+      <div
+        className="pointer-events-none fixed inset-0 z-0 bg-dot-pattern"
+        style={{ opacity: 0.35 }}
+        aria-hidden
+      />
+
+      {/* Floating Navbar Container */}
+      <div className="relative z-50 w-full max-w-7xl mx-auto px-4 pt-4 sm:px-6 lg:px-8">
         <Navbar />
+      </div>
 
-        {/* page transition wrapper */}
-        <motion.main
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="flex-1"
-        >
-          {children}
-        </motion.main>
+      {/* Main content wrapper - edge-to-edge capable */}
+      <motion.main
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className="flex-1 w-full"
+      >
+        {children}
+      </motion.main>
 
+      {/* Footer Container */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 pb-16 sm:px-6 lg:px-8">
         <Footer />
       </div>
+
       {/* Global chat widget */}
       <ChatWidget />
     </div>

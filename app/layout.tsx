@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Syne, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,13 +14,28 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const syne = Syne({
+  variable: "--font-syne",
+  subsets: ["latin"],
+  weight: ["500", "600", "700", "800"],
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.askstudios.net"),
   title: {
     default: "ASK Studios | Building Next-Gen Apps & AI Solutions",
     template: "%s | ASK Studios",
   },
-  description: "Product studio based in Ontario, Canada—building mobile apps, web applications, automations, and AI solutions.",
+  description:
+    "Product studio based in Ontario, Canada—building mobile apps, web applications, automations, and AI solutions.",
   alternates: {
     canonical: "/",
   },
@@ -30,7 +45,8 @@ export const metadata: Metadata = {
     url: "https://www.askstudios.net",
     siteName: "ASK Studios",
     title: "ASK Studios | Building Next-Gen Apps & AI Solutions",
-    description: "Product studio based in Ontario, Canada—building mobile apps, web applications, automations, and AI solutions.",
+    description:
+      "Product studio based in Ontario, Canada—building mobile apps, web applications, automations, and AI solutions.",
     images: [
       {
         url: "/logo.png",
@@ -43,7 +59,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "ASK Studios | Building Next-Gen Apps & AI Solutions",
-    description: "Product studio based in Ontario, Canada—building mobile apps, web applications, automations, and AI solutions.",
+    description:
+      "Product studio based in Ontario, Canada—building mobile apps, web applications, automations, and AI solutions.",
     images: ["/logo.png"],
   },
 };
@@ -54,18 +71,19 @@ const jsonLd = {
     {
       "@type": "Organization",
       "@id": "https://www.askstudios.net/#organization",
-      "name": "ASK Studios",
-      "url": "https://www.askstudios.net",
-      "logo": "https://www.askstudios.net/logo.png",
-      "email": "info@askstudios.net",
-      "description": "Product-focused studio building mobile apps, web applications, automations, and AI solutions.",
+      name: "ASK Studios",
+      url: "https://www.askstudios.net",
+      logo: "https://www.askstudios.net/logo.png",
+      email: "info@askstudios.net",
+      description:
+        "Product-focused studio building mobile apps, web applications, automations, and AI solutions.",
     },
     {
       "@type": "WebSite",
       "@id": "https://www.askstudios.net/#website",
-      "url": "https://www.askstudios.net",
-      "name": "ASK Studios",
-      "publisher": {
+      url: "https://www.askstudios.net",
+      name: "ASK Studios",
+      publisher: {
         "@id": "https://www.askstudios.net/#organization",
       },
     },
@@ -86,7 +104,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${syne.variable} ${spaceGrotesk.variable} antialiased`}
       >
         {children}
         <Analytics />

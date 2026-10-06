@@ -2,230 +2,364 @@
 "use client";
 
 import SiteShell from "@/components/layout/SiteShell";
+import Interactive3DHeading from "@/components/ui/Interactive3DHeading";
 import SectionHeader from "@/components/ui/SectionHeader";
-import GlassCard from "@/components/ui/GlassCard";
 import { services } from "@/components/sections/content";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import {
+  Code2,
+  Cpu,
+  LayoutDashboard,
+  Layers,
+  Database,
+  Compass,
+  CheckCircle2,
+  ArrowRight,
+  ArrowUpRight,
+  Sparkles,
+} from "lucide-react";
+
+const serviceIcons = [Code2, Cpu, LayoutDashboard, Layers, Database, Compass];
 
 const processSteps = [
   {
-    title: "1. Discovery & alignment",
-    description:
-      "We start with a focused call or workshop to understand your idea, goals, constraints, and existing systems. This is where we define what success looks like—whether it’s a new app, an AI assistant, or an internal automation.",
+    step: "01",
     tag: "Understand",
+    title: "Discovery & Alignment",
+    description:
+      "We unpack your vision, target users, technical constraints, and data infrastructure. We define explicit milestones and technical deliverables before writing a single line of production code.",
+    deliverables: ["Product Specification", "Technical Architecture", "Milestone Roadmap"],
   },
   {
-    title: "2. Prototype & validate",
+    step: "02",
+    tag: "Validate",
+    title: "Prototype & Architecture Proof",
     description:
-      "Next we shape a lean version of the solution: UX flows, clickable prototypes, or a working technical proof-of-concept. The goal is to validate the direction quickly before we invest in full build-out.",
-    tag: "Explore",
+      "We engineer a high-fidelity interactive prototype or targeted technical proof-of-concept. Real user flows and AI performance parameters are verified before scaling the full codebase.",
+    deliverables: ["Interactive Flow / POC", "Design Token System", "API Schema Specs"],
   },
   {
-    title: "3. Build, integrate & launch",
-    description:
-      "We then build the production-ready version, wire it into your existing tools and data, and handle deployment. After launch, we iterate based on real usage—optimizing performance, UX, and automation.",
+    step: "03",
     tag: "Ship",
+    title: "Production Build & Launch",
+    description:
+      "We build resilient, production-ready applications with test suites, CI/CD automation, and cloud deployments. We monitor telemetry and iterate based on real user behavior.",
+    deliverables: ["Production Deployment", "Full Source Repository", "Post-Launch Monitoring"],
   },
 ];
 
 const engagementModels = [
   {
-    badge: "Most popular",
-    badgeColor: "from-emerald-400 to-sky-400",
-    label: "MVP Build",
-    title: "Fixed-scope, fixed-price projects",
+    badge: "Most Popular",
+    badgeColor: "border-emerald-500/30 bg-emerald-500/10 text-emerald-300",
+    label: "Fixed Scope",
+    title: "MVP Sprint & Launch",
+    priceHint: "Fixed-budget milestone delivery",
     description:
-      "You bring the vision, we handle the full build. Ideal when you’re ready to ship a first version of a mobile app, web app, or AI-powered product.",
+      "You bring the vision, we engineer and ship the complete v1 release. Ideal for founders launching a mobile app, web platform, or AI-powered product.",
     bestFor: [
-      "Startups launching a v1 product",
-      "Businesses digitizing a manual workflow",
-      "Founders who want a clear timeline and budget",
+      "Founders launching a verified v1 product",
+      "Businesses replacing manual operations with custom software",
+      "Teams needing predictable budgets and hard deadlines",
     ],
-    hint: "Perfect when you know what you want and need it built the right way.",
+    hint: "Guaranteed deliverable with weekly staging demos.",
+    cta: "Book MVP Discovery",
+    popular: true,
   },
   {
-    badge: "Ongoing",
-    badgeColor: "from-indigo-400 to-violet-400",
-    label: "Product Partnership",
-    title: "Monthly retainer for continuous development",
+    badge: "Dedicated Partner",
+    badgeColor: "border-violet-500/30 bg-violet-500/10 text-violet-300",
+    label: "Continuous Dev",
+    title: "Product Partnership",
+    priceHint: "Monthly engineering retainer",
     description:
-      "We become your product and engineering partner—shipping features, improvements, and experiments every month.",
+      "We function as your dedicated engineering and product strike team—shipping features, architectural refactors, and performance iterations every sprint.",
     bestFor: [
-      "Teams without a full-time in-house dev team",
-      "Evolving products that need steady iteration",
-      "Companies that want a trusted long-term partner",
+      "Startups needing senior engineering without hiring overhead",
+      "Scaling apps with continuous feature backlogs",
+      "Long-term systems requiring dedicated technical stewardship",
     ],
-    hint: "The smoothest way to keep shipping without hiring a full internal team.",
+    hint: "Direct Slack channel, bi-weekly sprints, ongoing SLA.",
+    cta: "Inquire About Partnership",
+    popular: false,
   },
   {
-    badge: "Low commitment",
-    badgeColor: "from-sky-400 to-emerald-300",
-    label: "Consulting & Strategy",
-    title: "High-leverage sessions before you build",
+    badge: "High Leverage",
+    badgeColor: "border-sky-500/30 bg-sky-500/10 text-sky-300",
+    label: "Strategic Audit",
+    title: "Technical Advisory & Scoping",
+    priceHint: "Intensive architecture sessions",
     description:
-      "Tactical calls focused on architecture, feature scoping, AI/automation opportunities, or roadmap planning.",
+      "Tactical architecture blueprints, technical feasibility audits, and AI integration strategies before you commit engineering capital.",
     bestFor: [
-      "Founders validating ideas before investing",
-      "Teams deciding between multiple technical options",
-      "Businesses exploring AI and automation use cases",
+      "Founders validating feasibility before fundraising",
+      "Teams deciding between mobile, web, and LLM stacks",
+      "Organizations evaluating internal automation pipelines",
     ],
-    hint: "Start small, get clarity, and only then commit to a build.",
+    hint: "Actionable technical architecture document delivered in 5 days.",
+    cta: "Schedule Advisory Session",
+    popular: false,
   },
 ];
 
 export default function ServicesPage() {
   return (
     <SiteShell>
-      <section className="mt-10">
-        {/* Services overview */}
-        <SectionHeader
-          eyebrow="For teams & founders"
-          title="Services"
-          description="ASK Studios partners with founders and teams to design, build, and ship software that actually launches—mobile apps, web platforms, AI tools, and automations."
-        />
-
-        {/* Services grid */}
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
-          {services.map((service, index) => (
-            <GlassCard key={service.title} delay={0.05 * index}>
-              <h3 className="text-sm font-semibold text-slate-50">
-                {service.title}
-              </h3>
-              <p className="mt-2 text-sm text-slate-300/80">
-                {service.description}
-              </p>
-            </GlassCard>
-          ))}
-        </div>
-
-        {/* Process section */}
-        <div className="mt-16">
-          <SectionHeader
-            eyebrow="How we work"
-            title="From idea to launch in three clear steps"
-            description="Whether it’s a mobile app, SaaS platform, AI assistant, or internal automation, the process stays the same: understand, validate, then build and integrate."
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        {/* Hero Section */}
+        <section className="pt-6 pb-12">
+          <Interactive3DHeading
+            eyebrow="CAPABILITIES & ENGAGEMENT"
+            badgeTelemetry="SYS · 02-SVC"
+            title="Modular Engineering &"
+            highlight="Modern Product Delivery"
+            variant="violet"
+            description="ASK Studios partners with founders, high-velocity startups, and agile teams to architect and ship software that performs—from cross-platform mobile apps to autonomous AI pipelines and robust cloud infrastructure."
+            align="center"
           />
+        </section>
 
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
-            {processSteps.map((step, index) => (
-              <GlassCard key={step.title} delay={0.06 * index}>
-                <div className="text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-300/80">
-                  {step.tag}
-                </div>
-                <h3 className="mt-2 text-sm font-semibold text-slate-50">
-                  {step.title}
-                </h3>
-                <p className="mt-3 text-sm text-slate-300/80">
-                  {step.description}
-                </p>
-              </GlassCard>
-            ))}
+        {/* Services Grid */}
+        <section className="mt-8">
+          <div className="flex items-center justify-between pb-6 border-b border-white/[0.06]">
+            <div>
+              <span className="font-tech text-xs tracking-[0.2em] uppercase text-violet-400">
+                CORE DISCIPLINES
+              </span>
+              <h2 className="mt-1 font-display text-2xl font-bold text-chiseled-titanium sm:text-3xl">
+                What We Build & Deliver
+              </h2>
+            </div>
+            <span className="hidden font-tech text-xs text-zinc-500 sm:block">
+              06 ACTIVE SPECIALIZATIONS
+            </span>
           </div>
 
-          <p className="mt-6 max-w-xl text-sm text-slate-300/80">
-            Most projects start small: a clear problem, a scoped first version, and a timeline
-            that respects reality. From there, we iterate—adding features, refining UX, and
-            layering in automation or AI where it actually helps.
-          </p>
-        </div>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {services.map((service, index) => {
+              const Icon = serviceIcons[index % serviceIcons.length];
+              return (
+                <motion.div
+                  key={service.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.5, delay: 0.05 * index }}
+                  whileHover={{ y: -5, scale: 1.01 }}
+                  className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#070514]/85 p-6 shadow-xl shadow-black/60 backdrop-blur-xl transition-all duration-300 hover:border-violet-500/35 hover:bg-[#0b081e]/90"
+                >
+                  <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-400/20 to-transparent" />
+                  
+                  <div className="flex items-center justify-between">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-violet-500/20 bg-violet-500/10 text-violet-300 transition-colors duration-300 group-hover:border-violet-400/40 group-hover:bg-violet-500/20">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <span className="font-tech text-[11px] text-zinc-500 group-hover:text-zinc-400">
+                      0{index + 1}
+                    </span>
+                  </div>
 
-        {/* Ultra premium engagement models */}
-        <div className="mt-20">
+                  <h3 className="mt-5 font-display text-lg font-bold text-white transition-colors duration-200 group-hover:text-violet-200">
+                    {service.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+                    {service.description}
+                  </p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* Process Section */}
+        <section className="mt-28">
           <SectionHeader
-            eyebrow="Engagement models"
-            title="Choose how you want to work with ASK Studios"
-            description="Different projects need different shapes. Whether you want a one-off build, an ongoing partner, or a strategy-first approach, there’s a model that fits."
+            eyebrow="EXECUTION PROTOCOL"
+            telemetryCode="3-STAGE PIPELINE"
+            title="From Concept to Deployment in Three Precise Cycles"
+            description="Whether architecting a mobile utility or an autonomous AI integration, our production workflow is engineered to eliminate ambiguity and ship real software fast."
+            gradientVariant="violet"
           />
 
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {processSteps.map((step, index) => (
+              <motion.div
+                key={step.step}
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.5, delay: 0.08 * index }}
+                whileHover={{ y: -4 }}
+                className="relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/[0.08] bg-[#070514]/85 p-6 shadow-xl shadow-black/50 backdrop-blur-xl transition-all duration-300 hover:border-violet-500/30"
+              >
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="font-tech text-2xl font-bold text-violet-400/80">
+                      {step.step}
+                    </span>
+                    <span className="rounded-full border border-violet-500/20 bg-violet-500/5 px-2.5 py-0.5 font-tech text-[10px] uppercase tracking-wider text-violet-300">
+                      {step.tag}
+                    </span>
+                  </div>
+
+                  <h3 className="mt-4 font-display text-lg font-bold text-white">
+                    {step.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+                    {step.description}
+                  </p>
+                </div>
+
+                <div className="mt-6 border-t border-white/[0.06] pt-4">
+                  <span className="font-tech text-[10px] uppercase tracking-wider text-zinc-500">
+                    Key Outputs
+                  </span>
+                  <div className="mt-2 space-y-1.5">
+                    {step.deliverables.map((d) => (
+                      <div key={d} className="flex items-center gap-2 text-xs text-zinc-300">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-violet-400 shrink-0" />
+                        <span>{d}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* Engagement Models */}
+        <section className="mt-28">
+          <SectionHeader
+            eyebrow="FLEXIBLE COLLABORATION"
+            telemetryCode="CHOOSE FORMAT"
+            title="Transparent Engagement Models"
+            description="Different products require different structures. Whether you need a full v1 MVP built from scratch, an ongoing senior engineering partner, or tactical architecture advisory."
+            gradientVariant="emerald"
+          />
+
+          <div className="mt-10 grid gap-6 lg:grid-cols-3">
             {engagementModels.map((model, index) => (
               <motion.div
                 key={model.label}
-                initial={{ opacity: 0, y: 18, scale: 0.98 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, margin: "-80px" }}
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: 0.08 * index }}
-                whileHover={{ y: -6, scale: 1.01 }}
-                className="group relative"
+                whileHover={{ y: -6 }}
+                className={`relative flex flex-col justify-between overflow-hidden rounded-2xl border p-7 shadow-2xl backdrop-blur-2xl transition-all duration-300 ${
+                  model.popular
+                    ? "border-emerald-500/40 bg-[#070918]/90 shadow-emerald-950/20"
+                    : "border-white/[0.08] bg-[#070514]/85 shadow-black/60"
+                }`}
               >
-                {/* Glow border */}
-                <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-emerald-400/10 via-sky-500/0 to-violet-500/10 opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-100" />
+                {/* Popular ambient glow */}
+                {model.popular && (
+                  <div className="pointer-events-none absolute -right-20 -top-20 h-44 w-44 rounded-full bg-emerald-500/15 blur-3xl" />
+                )}
 
-                <div className="relative h-full rounded-3xl border border-slate-700/80 bg-slate-900/80 p-5 shadow-xl backdrop-blur">
-                  <div className="flex items-start justify-between gap-2">
-                    <span className="inline-flex items-center rounded-full bg-slate-900 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-300">
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="font-tech text-[11px] uppercase tracking-wider text-zinc-400">
                       {model.label}
                     </span>
                     <span
-                      className={`inline-flex items-center rounded-full bg-gradient-to-r ${model.badgeColor} px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-950 shadow-sm`}
+                      className={`rounded-full border px-2.5 py-0.5 font-tech text-[10px] font-semibold uppercase tracking-wider ${model.badgeColor}`}
                     >
                       {model.badge}
                     </span>
                   </div>
 
-                  <h3 className="mt-4 text-sm font-semibold text-slate-50">
+                  <h3 className="mt-4 font-display text-xl font-bold text-white">
                     {model.title}
                   </h3>
-                  <p className="mt-2 text-sm text-slate-300/80">
+                  <div className="mt-1 font-tech text-xs text-zinc-400">
+                    {model.priceHint}
+                  </div>
+
+                  <p className="mt-4 text-sm leading-relaxed text-zinc-400">
                     {model.description}
                   </p>
 
-                  <div className="mt-4 space-y-1.5 text-xs text-slate-300/80">
+                  <div className="mt-6 space-y-2 border-t border-white/[0.06] pt-5">
+                    <div className="font-tech text-[10px] uppercase tracking-wider text-zinc-500">
+                      Ideal Scenario
+                    </div>
                     {model.bestFor.map((item) => (
-                      <div key={item} className="flex gap-2">
-                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                      <div key={item} className="flex items-start gap-2 text-xs text-zinc-300">
+                        <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 text-emerald-400 shrink-0" />
                         <span>{item}</span>
                       </div>
                     ))}
                   </div>
+                </div>
 
-                  <p className="mt-4 text-[11px] text-emerald-300/90">
-                    {model.hint}
+                <div className="mt-8 pt-5 border-t border-white/[0.06]">
+                  <p className="font-tech text-[11px] text-zinc-400 italic">
+                    &ldquo;{model.hint}&rdquo;
                   </p>
+                  <Link
+                    href="/#contact"
+                    className={`mt-4 flex w-full items-center justify-center gap-2 rounded-xl py-2.5 text-xs font-semibold transition-all ${
+                      model.popular
+                        ? "bg-gradient-to-r from-emerald-400 to-teal-400 text-black shadow-lg shadow-emerald-500/25 hover:from-emerald-300 hover:to-teal-300"
+                        : "border border-white/10 bg-white/[0.04] text-white hover:bg-white/[0.08]"
+                    }`}
+                  >
+                    <span>{model.cta}</span>
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
                 </div>
               </motion.div>
             ))}
           </div>
 
-          {/* CTA panel */}
+          {/* Bottom High-Craft CTA Banner */}
           <motion.div
-            className="mt-10 flex flex-col gap-4 rounded-2xl border border-emerald-500/30 bg-gradient-to-r from-emerald-500/10 via-slate-950 to-sky-500/10 p-5 text-sm text-slate-100 md:flex-row md:items-center md:justify-between"
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
+            viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.6 }}
+            className="mt-14 relative overflow-hidden rounded-3xl border border-violet-500/25 bg-gradient-to-r from-violet-950/40 via-[#070514]/90 to-emerald-950/40 p-8 shadow-2xl backdrop-blur-2xl"
           >
-            <div>
-              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-200">
-                Ready when you are
-              </div>
-              <h3 className="mt-2 text-sm font-semibold text-slate-50">
-                Not sure which model fits? We’ll help you pick one.
-              </h3>
-              <p className="mt-2 text-xs text-slate-200/80">
-                Share what you&apos;re building and where you&apos;re at—idea, early prototype, or
-                existing product. We’ll recommend a starting point that respects your timeline and
-                budget.
-              </p>
-            </div>
+            <div className="pointer-events-none absolute -left-20 -top-20 h-52 w-52 rounded-full bg-violet-600/20 blur-3xl" />
+            <div className="pointer-events-none absolute -right-20 -bottom-20 h-52 w-52 rounded-full bg-emerald-500/20 blur-3xl" />
 
-            <div className="flex flex-col gap-2 md:items-end">
-              <a
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-full bg-emerald-400 px-5 py-2 text-xs font-semibold text-slate-950 hover:bg-emerald-300"
-              >
-                Talk about your project
-              </a>
-              <a
-                href="mailto:info@askstudios.net"
-                className="text-[11px] text-emerald-200 hover:text-emerald-100"
-              >
-                Or email us directly · info@askstudios.net
-              </a>
+            <div className="relative z-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+              <div className="max-w-xl">
+                <div className="inline-flex items-center gap-2 rounded-full border border-violet-400/20 bg-violet-500/10 px-3 py-0.5 font-tech text-[11px] uppercase tracking-wider text-violet-300">
+                  <Sparkles className="h-3 w-3" />
+                  <span>START THE CONVERSATION</span>
+                </div>
+                <h3 className="mt-3 font-display text-2xl font-bold text-white sm:text-3xl">
+                  Not sure which model fits? Let&apos;s scope it together.
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+                  Tell us where you are—early idea, technical architecture review, or existing code in production. We&apos;ll advise a timeline and execution roadmap that respects your runway.
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-3 sm:flex-row md:flex-col lg:flex-row shrink-0">
+                <Link
+                  href="/#contact"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 px-6 py-3 text-xs font-semibold text-white shadow-lg shadow-violet-500/30 transition-all hover:from-violet-500 hover:to-indigo-500 active:scale-95"
+                >
+                  <span>Talk About Your Project</span>
+                  <ArrowUpRight className="h-4 w-4" />
+                </Link>
+                <a
+                  href="mailto:info@askstudios.net"
+                  className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/[0.03] px-5 py-3 text-xs font-medium text-zinc-300 hover:bg-white/[0.08] hover:text-white transition-colors"
+                >
+                  info@askstudios.net
+                </a>
+              </div>
             </div>
           </motion.div>
-        </div>
-      </section>
+        </section>
+      </div>
     </SiteShell>
   );
 }

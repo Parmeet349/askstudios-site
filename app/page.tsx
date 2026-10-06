@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import SiteShell from "@/components/layout/SiteShell";
 import HeroSection from "@/components/sections/HeroSection";
 import ProductsSection from "@/components/sections/ProductsSection";
@@ -12,11 +10,13 @@ export default function Home() {
   return (
     <SiteShell>
       <HeroSection />
-      <ProductsSection />
-      <ServicesSection />
-      <AIShowcaseSection /> 
-      <AboutSection />
-      <ContactSection />
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ProductsSection />
+        <ServicesSection />
+        <AIShowcaseSection />
+        <AboutSection />
+        <ContactSection />
+      </div>
     </SiteShell>
   );
 }
