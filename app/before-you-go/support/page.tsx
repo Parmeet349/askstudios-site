@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import SiteShell from "@/components/layout/SiteShell";
 import SectionHeader from "@/components/ui/SectionHeader";
-import GlassCard from "@/components/ui/GlassCard";
+import { HelpCircle, Mail, Send, CheckCircle2, AlertCircle } from "lucide-react";
 
 type FormState = "idle" | "submitting" | "success" | "error";
 
@@ -107,265 +107,245 @@ export default function BeforeYouGoSupportPage() {
 
   return (
     <SiteShell>
-      <section className="mt-10 mb-16">
-        <SectionHeader
-          eyebrow="App Support"
-          title="Before You Go Support & Help Center"
-          description="Have questions about departure rituals, lockscreen reminders, or need help? We're here to help you leave stress-free."
-        />
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <section className="space-y-8">
+          <SectionHeader
+            eyebrow="APP SUPPORT"
+            telemetryCode="BEFORE-YOU-GO · HELP DESK"
+            title="Before You Go Support & Help Center"
+            description="Have questions about departure rituals, lockscreen reminders, or need help? We're here to help you leave stress-free."
+            gradientVariant="cyan"
+          />
 
-        <div className="mt-10 grid gap-10 lg:grid-cols-12 lg:items-start">
-          {/* FAQ Column (7 cols) */}
-          <div className="space-y-6 lg:col-span-7">
-            <h3 className="text-lg font-semibold text-slate-100 mb-4 flex items-center gap-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-5 h-5 text-emerald-400"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"
-                />
-              </svg>
-              Frequently Asked Questions
-            </h3>
-
-            <div className="space-y-3">
-              {faqs.map((faq, idx) => {
-                const isOpen = openFAQIndex === idx;
-                return (
-                  <div
-                    key={idx}
-                    className="overflow-hidden rounded-xl border border-slate-800/80 bg-slate-900/40 transition-colors duration-200 hover:border-slate-700/60"
-                  >
-                    <button
-                      type="button"
-                      onClick={() => toggleFAQ(idx)}
-                      className="flex w-full items-center justify-between px-5 py-4 text-left font-medium text-slate-200 transition-colors hover:text-slate-50"
-                    >
-                      <span className="text-sm">{faq.question}</span>
-                      <span className="ml-4 shrink-0 text-slate-400">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth={2}
-                          stroke="currentColor"
-                          className={`h-4 w-4 transform transition-transform duration-300 ${
-                            isOpen ? "rotate-180" : ""
-                          }`}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="m19.5 8.25-7.5 7.5-7.5-7.5"
-                          />
-                        </svg>
-                      </span>
-                    </button>
-
-                    <AnimatePresence initial={false}>
-                      {isOpen && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.25, ease: "easeInOut" }}
-                        >
-                          <div className="border-t border-slate-800/80 px-5 pb-4 pt-3 text-sm text-slate-300/85 leading-relaxed bg-slate-950/20">
-                            {faq.answer}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Quick Email Notice & Links */}
-            <div className="rounded-xl border border-slate-800 bg-slate-900/20 p-4 text-xs text-slate-400/90 leading-relaxed space-y-2">
-              <div>
-                <span className="font-semibold text-slate-300">Direct Support:</span> You can also email us directly at{" "}
-                <a
-                  href="mailto:contact@askstudios.net"
-                  className="font-medium text-emerald-300 hover:text-emerald-200 hover:underline"
-                >
-                  contact@askstudios.net
-                </a>. We typically reply within 1–2 business days.
-              </div>
-              <div className="pt-2 border-t border-slate-800/60 flex flex-wrap gap-3 text-slate-400">
-                <Link href="/before-you-go/privacy" className="text-emerald-300 hover:underline">
-                  Privacy Policy
-                </Link>
-                <span>•</span>
-                <Link href="/before-you-go/terms" className="text-emerald-300 hover:underline">
-                  Terms &amp; Conditions
-                </Link>
-                <span>•</span>
-                <Link href="/products/before-you-go" className="text-slate-400 hover:underline">
-                  Product Overview
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          {/* Form Column (5 cols) */}
-          <div className="lg:col-span-5">
-            <GlassCard className="border border-slate-800/80 bg-slate-900/40 p-6">
-              <h3 className="text-lg font-semibold text-slate-100 mb-2 flex items-center gap-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-5 h-5 text-emerald-400"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
-                  />
-                </svg>
-                Contact Support
+          <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
+            {/* FAQ Column (7 cols) */}
+            <div className="space-y-6 lg:col-span-7">
+              <h3 className="flex items-center gap-2 font-display text-lg font-bold text-white">
+                <HelpCircle className="h-5 w-5 text-cyan-400" />
+                Frequently Asked Questions
               </h3>
-              <p className="text-xs text-slate-400 mb-6">
-                Fill out the form below and we will respond as soon as possible.
-              </p>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
-                {/* Name */}
-                <div>
-                  <label htmlFor="byg-support-name" className="block text-xs font-medium text-slate-300">
-                    Your Name
-                  </label>
-                  <input
-                    id="byg-support-name"
-                    type="text"
-                    required
-                    className="mt-1.5 w-full rounded-lg border border-slate-850 bg-slate-950/65 px-3 py-2 text-sm text-slate-50 outline-none transition-colors duration-200 focus:border-emerald-500/80 focus:ring-1 focus:ring-emerald-500/20"
-                    placeholder="e.g. Alex Smith"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                  />
-                </div>
-
-                {/* Email */}
-                <div>
-                  <label htmlFor="byg-support-email" className="block text-xs font-medium text-slate-300">
-                    Email Address
-                  </label>
-                  <input
-                    id="byg-support-email"
-                    type="email"
-                    required
-                    className="mt-1.5 w-full rounded-lg border border-slate-850 bg-slate-950/65 px-3 py-2 text-sm text-slate-50 outline-none transition-colors duration-200 focus:border-emerald-500/80 focus:ring-1 focus:ring-emerald-500/20"
-                    placeholder="you@example.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </div>
-
-                {/* Platform & Inquiry Type grid */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="byg-support-platform" className="block text-xs font-medium text-slate-300">
-                      App Platform
-                    </label>
-                    <select
-                      id="byg-support-platform"
-                      className="mt-1.5 w-full rounded-lg border border-slate-850 bg-slate-950/65 px-3 py-2 text-sm text-slate-100 outline-none focus:border-emerald-500/80"
-                      value={platform}
-                      onChange={(e) => setPlatform(e.target.value)}
+              <div className="space-y-3">
+                {faqs.map((faq, idx) => {
+                  const isOpen = openFAQIndex === idx;
+                  return (
+                    <div
+                      key={idx}
+                      className="overflow-hidden rounded-2xl border border-white/[0.08] bg-[#070514]/85 backdrop-blur-xl transition-colors duration-200 hover:border-cyan-500/35"
                     >
-                      <option value="iOS">iOS / iPhone</option>
-                      <option value="Android">Android</option>
-                      <option value="iPad">iPad</option>
-                      <option value="Other">Other</option>
-                    </select>
+                      <button
+                        type="button"
+                        onClick={() => toggleFAQ(idx)}
+                        className="flex w-full items-center justify-between px-5 py-4 text-left font-medium text-zinc-200 transition-colors hover:text-white"
+                      >
+                        <span className="text-sm font-semibold">{faq.question}</span>
+                        <span className="ml-4 shrink-0 text-zinc-400">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={2}
+                            stroke="currentColor"
+                            className={`h-4 w-4 transform transition-transform duration-300 ${
+                              isOpen ? "rotate-180 text-cyan-400" : ""
+                            }`}
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                            />
+                          </svg>
+                        </span>
+                      </button>
+
+                      <AnimatePresence initial={false}>
+                        {isOpen && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.25, ease: "easeInOut" }}
+                          >
+                            <div className="border-t border-white/[0.06] bg-black/30 px-5 pb-4 pt-3 text-sm leading-relaxed text-zinc-300/90">
+                              {faq.answer}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Direct Support Notice & Legal Links */}
+              <div className="rounded-2xl border border-white/[0.08] bg-[#070514]/70 p-5 text-xs leading-relaxed text-zinc-400 backdrop-blur-xl space-y-3">
+                <div>
+                  <strong className="text-zinc-200">Direct Engineering Support:</strong> You can also email us directly at{" "}
+                  <a
+                    href="mailto:contact@askstudios.net"
+                    className="font-medium text-cyan-400 hover:text-cyan-300 hover:underline"
+                  >
+                    contact@askstudios.net
+                  </a>. We typically reply within 24 business hours.
+                </div>
+                <div className="pt-2 border-t border-white/[0.06] flex flex-wrap gap-4 text-zinc-500">
+                  <Link href="/before-you-go/privacy" className="text-cyan-400 hover:underline">
+                    Privacy Policy
+                  </Link>
+                  <span>•</span>
+                  <Link href="/before-you-go/terms" className="text-cyan-400 hover:underline">
+                    Terms &amp; Conditions
+                  </Link>
+                  <span>•</span>
+                  <Link href="/products/before-you-go" className="text-zinc-400 hover:underline">
+                    Product Overview
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Form Column (5 cols) */}
+            <div className="lg:col-span-5">
+              <div className="rounded-3xl border border-white/[0.08] bg-[#070514]/85 p-6 sm:p-8 shadow-2xl backdrop-blur-2xl">
+                <h3 className="flex items-center gap-2 font-display text-lg font-bold text-white mb-2">
+                  <Mail className="h-5 w-5 text-cyan-400" />
+                  Contact Support
+                </h3>
+                <p className="text-xs text-zinc-400 mb-6">
+                  Fill out the form below and we will respond promptly.
+                </p>
+
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  {/* Name */}
+                  <div>
+                    <label htmlFor="byg-support-name" className="block text-xs font-medium text-zinc-300">
+                      Your Name
+                    </label>
+                    <input
+                      id="byg-support-name"
+                      type="text"
+                      required
+                      className="mt-1.5 w-full rounded-xl border border-white/[0.1] bg-[#03020a]/80 px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 outline-none transition-colors duration-200 focus:border-cyan-500/80 focus:ring-1 focus:ring-cyan-500/20"
+                      placeholder="e.g. Jane Doe"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                    />
                   </div>
 
+                  {/* Email */}
                   <div>
-                    <label htmlFor="byg-support-inquiry" className="block text-xs font-medium text-slate-300">
-                      Inquiry Type
+                    <label htmlFor="byg-support-email" className="block text-xs font-medium text-zinc-300">
+                      Email Address
                     </label>
-                    <select
-                      id="byg-support-inquiry"
-                      className="mt-1.5 w-full rounded-lg border border-slate-850 bg-slate-950/65 px-3 py-2 text-sm text-slate-100 outline-none focus:border-emerald-500/80"
-                      value={inquiryType}
-                      onChange={(e) => setInquiryType(e.target.value)}
-                    >
-                      <option value="Bug Report">Bug Report</option>
-                      <option value="Feature Request">Suggestion</option>
-                      <option value="Question">Question</option>
-                      <option value="Other">Other</option>
-                    </select>
+                    <input
+                      id="byg-support-email"
+                      type="email"
+                      required
+                      className="mt-1.5 w-full rounded-xl border border-white/[0.1] bg-[#03020a]/80 px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 outline-none transition-colors duration-200 focus:border-cyan-500/80 focus:ring-1 focus:ring-cyan-500/20"
+                      placeholder="you@example.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
                   </div>
-                </div>
 
-                {/* Subject */}
-                <div>
-                  <label htmlFor="byg-support-subject" className="block text-xs font-medium text-slate-300">
-                    Subject
-                  </label>
-                  <input
-                    id="byg-support-subject"
-                    type="text"
-                    required
-                    className="mt-1.5 w-full rounded-lg border border-slate-850 bg-slate-950/65 px-3 py-2 text-sm text-slate-50 outline-none transition-colors duration-200 focus:border-emerald-500/80 focus:ring-1 focus:ring-emerald-500/20"
-                    placeholder="Short description of your question or issue"
-                    value={subject}
-                    onChange={(e) => setSubject(e.target.value)}
-                  />
-                </div>
+                  {/* Platform & Inquiry Type */}
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="byg-support-platform" className="block text-xs font-medium text-zinc-300">
+                        Platform
+                      </label>
+                      <select
+                        id="byg-support-platform"
+                        className="mt-1.5 w-full rounded-xl border border-white/[0.1] bg-[#03020a]/80 px-3 py-2.5 text-sm text-zinc-200 outline-none focus:border-cyan-500/80"
+                        value={platform}
+                        onChange={(e) => setPlatform(e.target.value)}
+                      >
+                        <option value="iOS">iOS / iPhone</option>
+                        <option value="Android">Android</option>
+                        <option value="Other">Other</option>
+                      </select>
+                    </div>
 
-                {/* Message */}
-                <div>
-                  <label htmlFor="byg-support-message" className="block text-xs font-medium text-slate-300">
-                    How can we help?
-                  </label>
-                  <textarea
-                    id="byg-support-message"
-                    required
-                    rows={4}
-                    className="mt-1.5 w-full rounded-lg border border-slate-850 bg-slate-950/65 px-3 py-2 text-sm text-slate-50 outline-none transition-colors duration-200 focus:border-emerald-500/80 focus:ring-1 focus:ring-emerald-500/20"
-                    placeholder="Please details your question, suggestion, or describe the steps to reproduce the issue..."
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                  />
-                </div>
+                    <div>
+                      <label htmlFor="byg-support-inquiry" className="block text-xs font-medium text-zinc-300">
+                        Category
+                      </label>
+                      <select
+                        id="byg-support-inquiry"
+                        className="mt-1.5 w-full rounded-xl border border-white/[0.1] bg-[#03020a]/80 px-3 py-2.5 text-sm text-zinc-200 outline-none focus:border-cyan-500/80"
+                        value={inquiryType}
+                        onChange={(e) => setInquiryType(e.target.value)}
+                      >
+                        <option value="Bug Report">Bug Report</option>
+                        <option value="Feature Request">Suggestion</option>
+                        <option value="Question">Question</option>
+                        <option value="Other">Other</option>
+                      </select>
+                    </div>
+                  </div>
 
-                {/* Submit button */}
-                <button
-                  type="submit"
-                  disabled={status === "submitting"}
-                  className="w-full rounded-full bg-emerald-400 py-2.5 text-sm font-semibold text-slate-950 transition-all duration-200 hover:bg-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-slate-900 disabled:cursor-not-allowed disabled:opacity-75"
-                >
-                  {status === "submitting" ? "Sending..." : "Submit Support Request"}
-                </button>
+                  {/* Subject */}
+                  <div>
+                    <label htmlFor="byg-support-subject" className="block text-xs font-medium text-zinc-300">
+                      Subject
+                    </label>
+                    <input
+                      id="byg-support-subject"
+                      type="text"
+                      required
+                      className="mt-1.5 w-full rounded-xl border border-white/[0.1] bg-[#03020a]/80 px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 outline-none transition-colors duration-200 focus:border-cyan-500/80 focus:ring-1 focus:ring-cyan-500/20"
+                      placeholder="Brief summary of your question"
+                      value={subject}
+                      onChange={(e) => setSubject(e.target.value)}
+                    />
+                  </div>
 
-                {/* Status messages */}
-                {status === "success" && (
-                  <p className="text-xs text-emerald-400 bg-emerald-950/30 border border-emerald-900/50 rounded-lg p-3 text-center">
-                    Thank you! Your support request has been submitted successfully. We&apos;ll be in touch soon.
-                  </p>
-                )}
-                {status === "error" && (
-                  <p className="text-xs text-red-400 bg-red-950/30 border border-red-900/50 rounded-lg p-3 text-center">
-                    {errorMessage || "An error occurred. Please try again."}
-                  </p>
-                )}
-              </form>
-            </GlassCard>
+                  {/* Message */}
+                  <div>
+                    <label htmlFor="byg-support-message" className="block text-xs font-medium text-zinc-300">
+                      Message
+                    </label>
+                    <textarea
+                      id="byg-support-message"
+                      required
+                      rows={4}
+                      className="mt-1.5 w-full rounded-xl border border-white/[0.1] bg-[#03020a]/80 px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 outline-none transition-colors duration-200 focus:border-cyan-500/80 focus:ring-1 focus:ring-cyan-500/20"
+                      placeholder="Describe your question or issue in detail..."
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                    />
+                  </div>
+
+                  {/* Submit button */}
+                  <button
+                    type="submit"
+                    disabled={status === "submitting"}
+                    className="flex w-full items-center justify-center gap-2 rounded-full bg-cyan-400 py-3 text-sm font-bold text-slate-950 transition-all duration-200 hover:bg-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-900 disabled:cursor-not-allowed disabled:opacity-75"
+                  >
+                    <Send className="h-4 w-4" />
+                    {status === "submitting" ? "Transmitting..." : "Submit Support Request"}
+                  </button>
+
+                  {/* Status messages */}
+                  {status === "success" && (
+                    <div className="flex items-center gap-2 rounded-xl border border-cyan-500/30 bg-cyan-500/10 p-3 text-xs text-cyan-300">
+                      <CheckCircle2 className="h-4 w-4 shrink-0" />
+                      <span>Thank you! Your inquiry has been sent to our engineers.</span>
+                    </div>
+                  )}
+                  {status === "error" && (
+                    <div className="flex items-center gap-2 rounded-xl border border-rose-500/30 bg-rose-500/10 p-3 text-xs text-rose-300">
+                      <AlertCircle className="h-4 w-4 shrink-0" />
+                      <span>{errorMessage || "An error occurred. Please try again."}</span>
+                    </div>
+                  )}
+                </form>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </SiteShell>
   );
 }

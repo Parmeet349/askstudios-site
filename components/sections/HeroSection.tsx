@@ -51,7 +51,7 @@ const proofStats = [
     code: "04",
     value: "2+",
     title: "Years in Production",
-    desc: "Ontario studio shipping worldwide",
+    desc: "Shipping worldwide",
     icon: Sparkles,
     color: "#fbbf24",
   },
@@ -163,10 +163,10 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.25 }}
               className="mt-5 max-w-2xl text-base sm:text-lg leading-relaxed text-zinc-400 font-normal"
             >
-              ASK Studios is an independent engineering lab based in Ontario,
-              Canada. We build production-grade mobile ecosystems, autonomous AI
-              pipelines, and resilient digital infrastructure—operating our own
-              software fleet and partnering with ambitious teams worldwide.
+              ASK Studios is an independent engineering lab. We build
+              production-grade mobile ecosystems, autonomous AI pipelines, and
+              resilient digital infrastructure—operating our own software fleet
+              and partnering with ambitious teams worldwide.
             </motion.p>
 
             {/* CTAs & Micro-interaction Buttons */}
@@ -235,28 +235,27 @@ export default function HeroSection() {
               initial={{ opacity: 0, x: 24 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.45 }}
-              className="pointer-events-auto w-72 rounded-2xl border border-white/10 bg-[#06040f]/75 p-4 shadow-2xl backdrop-blur-xl hover:border-violet-500/30 transition-colors"
+              className="pointer-events-auto w-72 rounded-2xl border border-white/10 bg-[#06040f]/75 p-4 shadow-2xl backdrop-blur-xl hover:border-sky-500/30 transition-colors"
             >
               <div className="flex items-center justify-between">
                 <span className="text-[10px] font-mono uppercase tracking-widest text-emerald-400 flex items-center gap-1.5">
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
-                  Live in Stores
+                  Flagship App
                 </span>
                 <span className="text-[10px] font-mono text-zinc-400">
                   iOS · Android
                 </span>
               </div>
               <p className="mt-2 text-sm font-semibold text-white">
-                BrieflyCA News App
+                AutoLog Vehicle Manager
               </p>
               <p className="mt-1 text-xs text-zinc-400 leading-snug">
-                Canada-first AI news platform with sub-60s autonomous ETL
-                pipeline.
+                Smart vehicle logbook, fuel tracking &amp; 100% offline SQLite telemetry.
               </p>
-              <div className="mt-3 flex items-center justify-between text-[11px] font-mono text-violet-300 border-t border-white/[0.06] pt-2">
-                <span>4.9★ Rating</span>
+              <div className="mt-3 flex items-center justify-between text-[11px] font-mono text-sky-300 border-t border-white/[0.06] pt-2">
+                <span>Fleet Telemetry</span>
                 <Link
-                  href="#products"
+                  href="/products/autolog"
                   className="inline-flex items-center gap-1 hover:text-white transition-colors"
                 >
                   Inspect <ArrowRight className="h-3 w-3" />

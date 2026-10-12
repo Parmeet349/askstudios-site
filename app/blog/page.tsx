@@ -6,7 +6,7 @@ import { getAllPosts } from "@/lib/posts";
 import { Calendar, ArrowUpRight, BookOpen, Clock } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Blog & Technical Insights | ASK Studios",
+  title: "Engineering Notes & Insights",
   description:
     "Technical write-ups, architecture case studies, and engineering field notes on mobile apps, AI automation, and full-stack software from ASK Studios.",
   alternates: {

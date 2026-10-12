@@ -133,6 +133,23 @@ const productVisuals: Record<
       glow: "rgba(129,140,248,0.15)",
     },
   },
+  flagquest: {
+    image: "/images/blog/flagquest-hero.png",
+    imageAlt: "FlagQuest World Flag Quiz Interface",
+    category: "mobile",
+    accent: {
+      from: "#1e0b38",
+      to: "#070312",
+      border: "rgba(168,85,247,0.3)",
+      text: "#c084fc",
+      glow: "rgba(168,85,247,0.15)",
+    },
+    specs: [
+      { label: "Coverage", value: "195 UN Nations" },
+      { label: "Modes", value: "4 Distinct Game Modes" },
+      { label: "Multiplayer", value: "Local Pass & Play" },
+    ],
+  },
 };
 
 export default function ProductsSection() {
@@ -240,7 +257,7 @@ export default function ProductsSection() {
               },
             };
             const isFeatured =
-              product.slug === "brieflyca" || product.slug === "autolog";
+              product.slug === "autolog" || product.slug === "resumerail";
 
             return (
               <motion.div

@@ -9,9 +9,8 @@ export default function Footer() {
         <div className="flex flex-col items-start gap-3 max-w-sm">
           <AskLogo />
           <p className="text-xs leading-relaxed text-zinc-400 mt-2">
-            Independent product studio based in Ontario, Canada. Designing and
-            engineering native mobile applications, intelligent AI pipelines,
-            and scaled web software.
+            Designing and engineering native mobile applications, intelligent AI
+            pipelines, and scaled web software.
           </p>
           <div className="flex items-center gap-2 font-mono text-[11px] text-zinc-500 mt-1">
             <span>🇨🇦 Ontario, Canada</span>
@@ -34,14 +33,6 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/products/brieflyca"
-                  className="hover:text-white transition-colors"
-                >
-                  BrieflyCA (News)
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/products/autolog"
                   className="hover:text-white transition-colors"
                 >
@@ -58,10 +49,10 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/products/before-you-go"
+                  href="/products/jeet-auto-parts"
                   className="hover:text-white transition-colors"
                 >
-                  Before You Go
+                  Jeet Auto Parts
                 </Link>
               </li>
               <li>
@@ -69,7 +60,39 @@ export default function Footer() {
                   href="/products/tambola-caller"
                   className="hover:text-white transition-colors"
                 >
-                  Tambola Caller
+                  Tambola Numbers
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/products/flagquest"
+                  className="hover:text-white transition-colors"
+                >
+                  FlagQuest (Quiz)
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/products/brieflyca"
+                  className="hover:text-white transition-colors"
+                >
+                  BrieflyCA (News)
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/products/managerly"
+                  className="hover:text-white transition-colors"
+                >
+                  Managerly (Security)
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/products/before-you-go"
+                  className="hover:text-white transition-colors"
+                >
+                  Before You Go
                 </Link>
               </li>
             </ul>
@@ -158,6 +181,14 @@ export default function Footer() {
                   className="hover:text-white transition-colors"
                 >
                   Tambola Privacy
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/tambola-terms"
+                  className="hover:text-white transition-colors"
+                >
+                  Tambola Terms &amp; EULA
                 </Link>
               </li>
             </ul>

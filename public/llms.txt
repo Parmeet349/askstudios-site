@@ -4,13 +4,14 @@
 
 ## Products
 
-- [AutoLog](https://www.askstudios.net/products/autolog): Smart vehicle logbook and fuel tracking app for everyday drivers and small fleets with receipt scanning and expense analytics. Live on iOS and Android.
-- [BrieflyCA](https://www.askstudios.net/products/brieflyca): Canada-only mobile news app delivering AI-generated news summaries in under 60 seconds without information overload. Live on iOS and Android.
-- [Before You Go](https://www.askstudios.net/products/before-you-go): Minimalist, ritual-driven departure checklist that reminds users of essentials right before leaving. 100% private and offline-first. Live on iOS and Android.
-- [ResumeRail](https://www.askstudios.net/products/resumerail): AI-powered resume builder designed to optimize content for ATS (Applicant Tracking Systems) and match job requirements. In beta.
-- [Tambola Caller](https://www.askstudios.net/products/tambola-caller): Modern Housie/Tambola number caller utility app designed for parties and live events. Live on iOS and Android.
-- [Managerly](https://www.askstudios.net/products/managerly): Privacy-conscious, encryption-first password and credential manager. In beta.
+- [AutoLog](https://www.askstudios.net/products/autolog): Smart vehicle logbook and fuel tracking app for everyday drivers and small fleets with receipt scanning and expense analytics. Live on iOS and Android. Flagship product.
+- [ResumeRail](https://www.askstudios.net/products/resumerail): AI-powered resume builder designed to optimize content for ATS (Applicant Tracking Systems) and match job requirements. Cross-platform beta.
 - [Jeet Auto Parts](https://www.askstudios.net/products/jeet-auto-parts): Two-wheeler aftermarket spare parts dealer in Grant Road, Mumbai, featuring verified fitment and instant WhatsApp consultation. Live web showcase.
+- [Tambola Numbers](https://www.askstudios.net/products/tambola-caller): Modern Housie/Tambola number caller utility app with real-time Live Party sync, voice engine, and digital tickets. Live on iOS and Android.
+- [FlagQuest](https://www.askstudios.net/products/flagquest): Vibrant world flag quiz mobile game covering 195 nations with 4 game modes, 3D educational clues, and local pass-and-play multiplayer. Live on iOS and Android.
+- [BrieflyCA](https://www.askstudios.net/products/brieflyca): Canada-only mobile news app delivering AI-generated news summaries in under 60 seconds without information overload. Live on iOS and Android.
+- [Managerly](https://www.askstudios.net/products/managerly): Privacy-conscious, encryption-first password and credential manager. In beta.
+- [Before You Go](https://www.askstudios.net/products/before-you-go): Minimalist, ritual-driven departure checklist that reminds users of essentials right before leaving. 100% private and offline-first. Live on iOS and Android.
 
 ## Services
 
@@ -34,3 +35,18 @@
 - [Portfolio & Case Studies](https://www.askstudios.net/portfolio)
 - [Blog & Technical Articles](https://www.askstudios.net/blog)
 - [Contact](https://www.askstudios.net/contact): Start a project or email info@askstudios.net
+- [Sitemap XML](https://www.askstudios.net/sitemap.xml)
+- [RSS Feed](https://www.askstudios.net/rss)
+
+## Legal, Compliance & Support
+
+- [Studio Privacy Policy](https://www.askstudios.net/privacy): Data privacy practices for ASK Studios platforms.
+- [Studio Terms of Service](https://www.askstudios.net/terms): General conditions and licensing for ASK Studios services.
+- [Tambola Caller Privacy Policy](https://www.askstudios.net/tambola-privacy-policy): Privacy disclosures for Tambola Number Caller v1.6.0.
+- [Tambola Caller Terms & EULA](https://www.askstudios.net/tambola-terms): Terms of Use, Lifetime In-App Purchase terms, and Apple Standard EULA agreement.
+- [FlagQuest Privacy Policy](https://www.askstudios.net/flagquest-privacy-policy): Local-first, zero-PII privacy policy.
+- [FlagQuest Terms of Service](https://www.askstudios.net/flagquest-terms): Game terms and licensing conditions.
+- [FlagQuest Support & Help Desk](https://www.askstudios.net/flagquest-support): FAQs and developer support ticketing.
+- [Before You Go Privacy Policy](https://www.askstudios.net/before-you-go/privacy): 100% offline-first departure checklist privacy terms.
+- [Before You Go Terms](https://www.askstudios.net/before-you-go/terms): Application terms and conditions.
+- [Before You Go Support](https://www.askstudios.net/before-you-go/support): Departure reminder troubleshooting and FAQs.

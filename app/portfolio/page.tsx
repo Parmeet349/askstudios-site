@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Portfolio & Case Studies | ASK Studios",
+  title: "Case Studies & Production Builds",
   description:
     "Selected software systems, mobile applications, and AI platforms architected and launched by ASK Studios.",
   alternates: {

@@ -53,9 +53,6 @@ export default function AskLogo({
           <span className="text-xs font-bold tracking-[0.22em] text-white transition-colors duration-200 group-hover:text-emerald-200">
             ASK STUDIOS
           </span>
-          <span className="text-[9px] font-mono tracking-widest text-zinc-400">
-            ONTARIO · CA
-          </span>
         </div>
       )}
     </Link>

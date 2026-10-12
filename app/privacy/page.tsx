@@ -3,7 +3,7 @@ import SiteShell from "@/components/layout/SiteShell";
 import SectionHeader from "@/components/ui/SectionHeader";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | ASK Studios",
+  title: "Privacy Policy",
   description: "How ASK Studios collects, uses, and protects your information.",
   alternates: {
     canonical: "/privacy",

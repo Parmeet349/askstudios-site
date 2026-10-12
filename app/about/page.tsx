@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About ASK Studios | Canadian Product Studio",
+  title: "About Us · Canadian Product Studio",
   description:
     "An independent product studio based in Ontario, Canada—engineering apps, automations, and practical AI systems that launch.",
   alternates: {
@@ -49,19 +49,45 @@ const ethosPillars = [
 const techPillars = [
   {
     category: "Mobile Platforms",
-    technologies: ["React Native", "Expo", "iOS Native Bridges", "Android SDK", "Push Notifications"],
+    technologies: [
+      "React Native",
+      "Expo",
+      "iOS Native Bridges",
+      "Android SDK",
+      "Push Notifications",
+    ],
   },
   {
     category: "Web & Frontend",
-    technologies: ["Next.js App Router", "React 19", "TypeScript", "Tailwind CSS", "Framer Motion", "Three.js / WebGL"],
+    technologies: [
+      "Next.js App Router",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Three.js / WebGL",
+    ],
   },
   {
     category: "Backend & Systems",
-    technologies: ["Node.js", "PostgreSQL", "MongoDB", "Redis", "REST & GraphQL", "Prisma ORM"],
+    technologies: [
+      "Node.js",
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "REST & GraphQL",
+      "Prisma ORM",
+    ],
   },
   {
     category: "AI & Infrastructure",
-    technologies: ["OpenAI / Anthropic APIs", "Vector Databases", "Firebase Functions", "Cloudflare Workers", "Vercel Edge"],
+    technologies: [
+      "OpenAI / Anthropic APIs",
+      "Vector Databases",
+      "Firebase Functions",
+      "Cloudflare Workers",
+      "Vercel Edge",
+    ],
   },
 ];
 
@@ -98,15 +124,25 @@ export default function AboutPage() {
 
               <div className="mt-6 space-y-4 text-sm leading-relaxed text-zinc-300/90 sm:text-base">
                 <p>
-                  ASK Studios was built around a singular thesis: the best products emerge when design, engineering, and rapid prototyping are tightly coupled by builders who actually ship to production.
+                  ASK Studios was built around a singular thesis: the best
+                  products emerge when design, engineering, and rapid
+                  prototyping are tightly coupled by builders who actually ship
+                  to production.
                 </p>
                 <p>
                   From autonomous Canada-focused news summarizers like{" "}
-                  <span className="font-semibold text-white">BrieflyCA</span> and vehicle tracking utilities like{" "}
-                  <span className="font-semibold text-white">AutoLog</span>, to custom AI integrations for private companies, we don&apos;t just consult from the sidelines—we build and maintain real systems in live store environments.
+                  <span className="font-semibold text-white">BrieflyCA</span>{" "}
+                  and vehicle tracking utilities like{" "}
+                  <span className="font-semibold text-white">AutoLog</span>, to
+                  custom AI integrations for private companies, we don&apos;t
+                  just consult from the sidelines—we build and maintain real
+                  systems in live store environments.
                 </p>
                 <p>
-                  We combine modern spatial design sensibilities with rock-solid full-stack architectures. Whether you are validating a brand new idea or replacing brittle legacy workflows, our code is built to deliver immediate value.
+                  We combine modern spatial design sensibilities with rock-solid
+                  full-stack architectures. Whether you are validating a brand
+                  new idea or replacing brittle legacy workflows, our code is
+                  built to deliver immediate value.
                 </p>
               </div>
             </div>
@@ -148,15 +184,21 @@ export default function AboutPage() {
               <div className="mt-6 space-y-3 border-t border-white/[0.08] pt-5 font-tech text-xs">
                 <div className="flex justify-between py-1">
                   <span className="text-zinc-500">Principal Engineer</span>
-                  <span className="font-medium text-zinc-200">Parmeet Singh Banga</span>
+                  <span className="font-medium text-zinc-200">
+                    Parmeet Singh Banga
+                  </span>
                 </div>
                 <div className="flex justify-between py-1">
                   <span className="text-zinc-500">Core Modality</span>
-                  <span className="font-medium text-zinc-200">Mobile, Web & Applied AI</span>
+                  <span className="font-medium text-zinc-200">
+                    Mobile, Web & Applied AI
+                  </span>
                 </div>
                 <div className="flex justify-between py-1">
                   <span className="text-zinc-500">Response SLA</span>
-                  <span className="font-medium text-emerald-300">&lt; 24 Business Hours</span>
+                  <span className="font-medium text-emerald-300">
+                    &lt; 24 Business Hours
+                  </span>
                 </div>
                 <div className="flex justify-between py-1">
                   <span className="text-zinc-500">Direct Comms</span>
@@ -175,7 +217,14 @@ export default function AboutPage() {
                 Studio Capabilities
               </div>
               <div className="mt-3 flex flex-wrap gap-2">
-                {["iOS & Android", "Full-Stack Web", "LLM Fine-Tuning & RAG", "Cloud API Automation", "Custom Dashboards", "Design Systems"].map((cap) => (
+                {[
+                  "iOS & Android",
+                  "Full-Stack Web",
+                  "LLM Fine-Tuning & RAG",
+                  "Cloud API Automation",
+                  "Custom Dashboards",
+                  "Design Systems",
+                ].map((cap) => (
                   <span
                     key={cap}
                     className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 font-tech text-[11px] text-zinc-300"
@@ -275,7 +324,9 @@ export default function AboutPage() {
                   Have an application or system to engineer?
                 </h3>
                 <p className="mt-2 max-w-xl text-sm leading-relaxed text-zinc-400">
-                  Reach out with your goals and specs. We&apos;ll schedule an introductory architecture session and deliver an actionable technical proposal.
+                  Reach out with your goals and specs. We&apos;ll schedule an
+                  introductory architecture session and deliver an actionable
+                  technical proposal.
                 </p>
               </div>
 

@@ -3,7 +3,7 @@ import SiteShell from "@/components/layout/SiteShell";
 import SectionHeader from "@/components/ui/SectionHeader";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | ASK Studios",
+  title: "Terms of Service",
   description: "The rules and conditions for using ASK Studios’ website, apps, and services.",
   alternates: {
     canonical: "/terms",
@@ -69,7 +69,34 @@ export default function TermsPage() {
               </p>
 
               <h3 className="font-display text-base font-bold text-white pt-2">
-                6. Contact & Legal Notices
+                6. Product-Specific Terms &amp; End User License Agreements (EULA)
+              </h3>
+              <p className="text-zinc-400">
+                Certain mobile and web software published by ASK Studios have dedicated terms governing in-app purchases, multiplayer synchronization, and platform-specific licensing requirements (such as Apple App Store EULA guidelines):
+              </p>
+              <ul className="list-disc pl-5 space-y-1.5 text-zinc-400">
+                <li>
+                  <a href="/tambola-terms" className="font-tech text-cyan-300 hover:underline">
+                    Tambola Number Caller (Housie) Terms of Service &amp; Apple EULA
+                  </a>{" "}
+                  &ndash; In-App Purchases, Lifetime Pro, RevenueCat, and Apple Standard EULA.
+                </li>
+                <li>
+                  <a href="/flagquest-terms" className="font-tech text-cyan-300 hover:underline">
+                    FlagQuest Terms of Service
+                  </a>{" "}
+                  &ndash; Rules, licenses, and ad disclosures for FlagQuest.
+                </li>
+                <li>
+                  <a href="/before-you-go/terms" className="font-tech text-cyan-300 hover:underline">
+                    Before You Go Terms and Conditions
+                  </a>{" "}
+                  &ndash; Exit checklist mobile application terms and licensing.
+                </li>
+              </ul>
+
+              <h3 className="font-display text-base font-bold text-white pt-2">
+                7. Contact &amp; Legal Notices
               </h3>
               <p className="text-zinc-400">
                 Legal and formal inquiries may be submitted to:{" "}

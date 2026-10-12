@@ -2,7 +2,15 @@
 
 import { useState, useRef, useEffect, FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, X, Send, Bot, ArrowRight, User } from "lucide-react";
+import {
+  Sparkles,
+  X,
+  Send,
+  Bot,
+  ArrowRight,
+  User,
+  ExternalLink,
+} from "lucide-react";
 
 type Role = "user" | "assistant";
 
@@ -10,6 +18,69 @@ type ChatMessage = {
   role: Role;
   content: string;
 };
+
+function parseLine(line: string) {
+  const parts: React.ReactNode[] = [];
+  const regex = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)|(https?:\/\/[^\s)]+)/g;
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = regex.exec(line)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(line.slice(lastIndex, match.index));
+    }
+    if (match[1] && match[2]) {
+      parts.push(
+        <a
+          key={match.index}
+          href={match[2]}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-0.5 font-medium text-cyan-300 underline decoration-cyan-400/40 underline-offset-2 hover:text-cyan-200 hover:decoration-cyan-300 transition-colors"
+        >
+          <span>{match[1]}</span>
+          <ExternalLink className="h-2.5 w-2.5 opacity-70 inline" />
+        </a>,
+      );
+    } else if (match[3]) {
+      parts.push(
+        <a
+          key={match.index}
+          href={match[3]}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-0.5 font-medium text-cyan-300 underline decoration-cyan-400/40 underline-offset-2 hover:text-cyan-200 hover:decoration-cyan-300 transition-colors break-all"
+        >
+          <span>{match[3]}</span>
+          <ExternalLink className="h-2.5 w-2.5 opacity-70 inline" />
+        </a>,
+      );
+    }
+    lastIndex = regex.lastIndex;
+  }
+
+  if (lastIndex < line.length) {
+    parts.push(line.slice(lastIndex));
+  }
+
+  return parts;
+}
+
+function FormattedMessage({ text }: { text: string }) {
+  const lines = text.split("\n");
+  return (
+    <div className="space-y-1.5">
+      {lines.map((line, idx) => {
+        if (!line.trim()) return <div key={idx} className="h-1" />;
+        return (
+          <p key={idx} className="leading-relaxed">
+            {parseLine(line)}
+          </p>
+        );
+      })}
+    </div>
+  );
+}
 
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
@@ -176,7 +247,11 @@ export default function ChatWidget() {
                         : "border border-white/[0.08] bg-[#0c091f] text-zinc-200"
                     }`}
                   >
-                    {m.content}
+                    {m.role === "user" ? (
+                      m.content
+                    ) : (
+                      <FormattedMessage text={m.content} />
+                    )}
                   </div>
                 </div>
               ))}
@@ -199,7 +274,7 @@ export default function ChatWidget() {
             >
               <input
                 className="flex-1 rounded-xl border border-white/[0.08] bg-black/50 px-4 py-2.5 text-xs text-white placeholder-zinc-500 outline-none transition-colors focus:border-violet-400"
-                placeholder="Ask about AutoLog, BrieflyCA, or studio services..."
+                placeholder="Ask about AutoLog, ResumeRail, FlagQuest, or custom apps..."
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 disabled={isLoading}

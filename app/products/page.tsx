@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Products Suite | ASK Studios",
+  title: "Products & Software Portfolio",
   description:
     "Explore the proprietary mobile apps, AI tools, and platforms built and operated by ASK Studios.",
   alternates: {

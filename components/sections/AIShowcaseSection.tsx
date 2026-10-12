@@ -31,7 +31,7 @@ const samplePrompts: PromptDemo[] = [
   {
     query: "What mobile apps has ASK Studios published to the App Store?",
     response:
-      "ASK Studios has published multiple production apps to both the Apple App Store and Google Play:\n\n1. BrieflyCA — Canada-first AI news platform with sub-60s automated summarization (4.9★ rating).\n2. AutoLog — Smart vehicle logbook with 100% offline-first SQLite database for fuel & service tracking.\n3. Tambola Caller — Interactive voice-caller engine for live event gaming.\n4. ResumeRail (Beta) — Cross-platform ATS resume optimization engine.\n\nAll mobile apps are engineered with React Native, Expo, and strict native sandboxing.",
+      "ASK Studios has published multiple production apps to both the Apple App Store and Google Play:\n\n1. AutoLog (Flagship) — Smart vehicle logbook with 100% offline-first SQLite database for fuel & service telemetry.\n2. ResumeRail — Cross-platform AI ATS resume optimization engine.\n3. Jeet Auto Parts — Digital automotive hub & catalog with instant WhatsApp fitment support.\n4. Tambola Numbers — Interactive voice-caller engine with Live Party sync and digital tickets.\n5. FlagQuest — World flag quiz game across 195 nations with local pass-and-play multiplayer.\n6. BrieflyCA — Canada-first AI news platform with sub-60s automated summarization.\n\nAll mobile apps are engineered with React Native, Expo, and strict native sandboxing.",
     latencyMs: 44,
     tokensSec: 168,
     tokens: 114,

@@ -21,34 +21,16 @@ export type Product = {
 
 export const products: Product[] = [
   {
-    slug: "brieflyca",
-    name: "BrieflyCA",
-    tag: "Mobile · AI · News",
-    shortDescription:
-      "Canada-only mobile news app delivering AI-generated summaries in under 60 seconds.",
-    status: "live",
-    platforms: ["Mobile"],
-    href: "/products/brieflyca",
-    cta: "View details",
-    badge: "Flagship product",
-    links: {
-      website: "https://brieflyca.com",
-      playStore:
-        "https://play.google.com/store/apps/details?id=com.askstudios.brieflyca",
-      sourceCode: "https://github.com/Parmeet349/BrieflyCA",
-      appStore: "https://apps.apple.com/us/app/brieflyca/id6757092055",
-    },
-  },
-  {
     slug: "autolog",
     name: "AutoLog",
     tag: "Mobile · Productivity",
     shortDescription:
-      "Smart vehicle logbook for tracking fuel, maintenance, and ownership costs.",
+      "Smart vehicle logbook for tracking fuel, maintenance, and ownership costs with 100% offline SQLite telemetry.",
     status: "live",
     platforms: ["Mobile", "Backend API"],
     href: "/products/autolog",
     cta: "View details",
+    badge: "Flagship product",
     links: {
       website: "https://autolog.ca",
       playStore: "https://play.google.com/store/apps/details?id=com.parmeet.AutoLog",
@@ -56,57 +38,18 @@ export const products: Product[] = [
     },
   },
   {
-    slug: "tambola-caller",
-    name: "Tambola Caller",
-    tag: "Mobile · Entertainment",
-    shortDescription:
-      "Modern Tambola / Housie number caller designed for events and live games.",
-    status: "live",
-    platforms: ["Mobile"],
-    href: "/products/tambola-caller",
-    cta: "View details",
-    links: {
-      playStore:
-        "https://play.google.com/store/apps/details?id=com.geekypajis.tambolanumbers",
-      appStore: "https://apps.apple.com/us/app/tambola-number-caller-housie/id6757088103",
-    },
-  },
-  {
-    slug: "managerly",
-    name: "Managerly",
-    tag: "Mobile · Security",
-    shortDescription:
-      "Privacy-focused password manager built with an encryption-first approach.",
-    status: "beta",
-    platforms: ["Mobile"],
-    href: "/products/managerly",
-    cta: "View details",
-  },
-  {
     slug: "resumerail",
     name: "ResumeRail",
     tag: "AI · Careers",
-    shortDescription: "Cross-platform AI resume builder designed to optimize content for ATS and help candidates secure interviews faster.",
+    shortDescription:
+      "Cross-platform AI resume builder designed to optimize content for ATS and help candidates secure interviews faster.",
     status: "beta",
     platforms: ["Web", "Android", "iOS"],
     href: "/products/resumerail",
     cta: "View details",
+    badge: "AI Platform",
     links: {
       website: "https://resumerail.com",
-    },
-  },
-  {
-    slug: "before-you-go",
-    name: "Before You Go",
-    tag: "Mobile · Productivity · Lifestyle",
-    shortDescription:
-      "Minimalist, ritual-driven departure checklist that reminds you of your essentials right before you leave.",
-    status: "live",
-    platforms: ["iOS", "Android"],
-    href: "/products/before-you-go",
-    cta: "View details",
-    links: {
-      website: "https://www.askstudios.net/before-you-go/privacy",
     },
   },
   {
@@ -123,6 +66,79 @@ export const products: Product[] = [
     links: {
       website: "https://jeetauto.in",
       whatsapp: "https://wa.me/919323089061",
+    },
+  },
+  {
+    slug: "tambola-caller",
+    name: "Tambola Numbers",
+    tag: "Mobile · Entertainment",
+    shortDescription:
+      "Modern Tambola / Housie number caller with real-time Live Party room sync, voice engine, and digital tickets.",
+    status: "live",
+    platforms: ["Mobile"],
+    href: "/products/tambola-caller",
+    cta: "View details",
+    links: {
+      playStore:
+        "https://play.google.com/store/apps/details?id=com.geekypajis.tambolanumbers",
+      appStore: "https://apps.apple.com/us/app/tambola-number-caller-housie/id6757088103",
+    },
+  },
+  {
+    slug: "flagquest",
+    name: "FlagQuest",
+    tag: "Mobile · Gaming · Trivia",
+    shortDescription:
+      "Interactive world flag quiz covering all 195 nations with 4 game modes, 3D educational clues, and local pass-and-play multiplayer.",
+    status: "live",
+    platforms: ["iOS", "Android"],
+    href: "/products/flagquest",
+    cta: "View details",
+    links: {
+      website: "https://www.askstudios.net/flagquest-support",
+    },
+  },
+  {
+    slug: "brieflyca",
+    name: "BrieflyCA",
+    tag: "Mobile · AI · News",
+    shortDescription:
+      "Canada-only mobile news app delivering AI-generated summaries in under 60 seconds without information overload.",
+    status: "live",
+    platforms: ["Mobile"],
+    href: "/products/brieflyca",
+    cta: "View details",
+    links: {
+      website: "https://brieflyca.com",
+      playStore:
+        "https://play.google.com/store/apps/details?id=com.askstudios.brieflyca",
+      sourceCode: "https://github.com/Parmeet349/BrieflyCA",
+      appStore: "https://apps.apple.com/us/app/brieflyca/id6757092055",
+    },
+  },
+  {
+    slug: "managerly",
+    name: "Managerly",
+    tag: "Mobile · Security",
+    shortDescription:
+      "Privacy-focused password manager built with an encryption-first approach and local vault isolation.",
+    status: "beta",
+    platforms: ["Mobile"],
+    href: "/products/managerly",
+    cta: "View details",
+  },
+  {
+    slug: "before-you-go",
+    name: "Before You Go",
+    tag: "Mobile · Productivity · Lifestyle",
+    shortDescription:
+      "Minimalist, ritual-driven departure checklist that reminds you of your essentials right before you leave.",
+    status: "live",
+    platforms: ["iOS", "Android"],
+    href: "/products/before-you-go",
+    cta: "View details",
+    links: {
+      website: "https://www.askstudios.net/before-you-go/privacy",
     },
   },
 ];
@@ -317,6 +333,33 @@ export const productDetails: Record<
       "WhatsApp Business Direct",
       "E-Commerce Catalog",
       "Local Inventory Verification",
+    ],
+  },
+  flagquest: {
+    heroTagline:
+      "Master the world's 195 flags through visual, logical, and social gameplay.",
+    overview:
+      "FlagQuest is a vibrant, interactive mobile quiz game designed to take players on an educational adventure across all 195 nations. Featuring 4 distinct gameplay modes, local multiplayer pass-and-play, interactive 3D card flips with cultural trivia clues, and offline progress tracking.",
+    features: [
+      "All 195 UN member nations with curated high-resolution flag artwork.",
+      "4 distinct gameplay modes: Classic (3 lives), Time Attack, Endless Practice, and Local Pass & Play.",
+      "Interactive 3D card flips revealing fascinating cultural and geographical trivia clues.",
+      "Dynamic Explorer Profile with evolving titles and high-score records.",
+      "100% private offline storage with sensory audio and tactile haptic feedback.",
+      "Customizable continent filters to focus learning by region.",
+    ],
+    idealFor: [
+      "Geography enthusiasts and trivia lovers.",
+      "Students learning international flags and country capitals.",
+      "Friends and families playing pass-and-play party trivia on a single device.",
+      "Casual gamers looking for offline mental challenges and streak-based practice.",
+    ],
+    techStack: [
+      "React Native",
+      "Expo",
+      "Offline SQLite / AsyncStorage",
+      "Tactile Haptics & Audio FX",
+      "Interactive 3D Animations",
     ],
   },
 };
